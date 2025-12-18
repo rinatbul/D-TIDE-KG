@@ -8,12 +8,21 @@ import usFlag from '/us.png';
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('Русский');
   const langRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLang = () => setIsLangOpen(!isLangOpen);
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+    if (!isSearchOpen) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
+    }
+  };
 
   const currentFlag = currentLang === 'Русский' ? russiaFlag : usFlag;
 
@@ -26,6 +35,9 @@ export const Header = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
         setIsLangOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchOpen(false);
       }
     };
 
@@ -65,13 +77,32 @@ export const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Поиск"
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-40"
-              />
+            <div className="relative w-24" ref={searchRef}>
+              {isSearchOpen ? (
+                <div className="flex items-center gap-2">
+                  <Search className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    placeholder="Поиск..."
+                    className="py-1 focus:outline-none flex-1 bg-transparent text-gray-700 min-w-0"
+                  />
+                  <button
+                    onClick={toggleSearch}
+                    className="text-gray-400 hover:text-gray-600 flex-shrink-0"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={toggleSearch}
+                  className="flex items-center gap-2 py-1"
+                >
+                  <Search className="w-4 h-4 text-gray-500" />
+                  <span className="search-text">Поиск</span>
+                </button>
+              )}
             </div>
             <div className="relative" ref={langRef}>
               <button
@@ -141,12 +172,29 @@ export const Header = () => {
             </Link>
             <div className="pt-4 border-t border-gray-200">
               <div className="relative mb-4">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Поиск"
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                {isSearchOpen ? (
+                  <div className="flex items-center">
+                    <input
+                      type="text"
+                      placeholder="Поиск"
+                      className="flex-1 px-3 py-2 focus:outline-none bg-transparent"
+                    />
+                    <button
+                      onClick={toggleSearch}
+                      className="text-gray-500 hover:text-blue-600"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={toggleSearch}
+                    className="flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-blue-600"
+                  >
+                    <Search className="w-5 h-5" />
+                    <span className="text-gray-700">Поиск</span>
+                  </button>
+                )}
               </div>
               <div className="relative">
                 <button
