@@ -22,9 +22,9 @@ export const AboutSection = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-12">О ПРОЕКТЕ</h2>
+        <h2 className="section-title mb-12">О ПРОЕКТЕ</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className="about-card about-card-blue p-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                 <Settings className="w-6 h-6 text-white" />
@@ -41,7 +41,7 @@ export const AboutSection = () => {
             </ol>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className="about-card about-card-green p-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-green-600 rounded-md flex items-center justify-center">
                 <List className="w-6 h-6 text-white" />

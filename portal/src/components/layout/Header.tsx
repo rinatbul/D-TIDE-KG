@@ -46,7 +46,7 @@ export const Header = () => {
   }, []);
 
   return (
-<header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[10vh]'} pointer-events-none`}>
+<header className={`fixed z-50 w-full top-[10vh] pointer-events-none`}>
       <div className="w-full flex justify-center">
         <div className="header-container flex items-center justify-between pointer-events-auto">
           <div className="flex items-center gap-3">

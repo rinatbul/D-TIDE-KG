@@ -69,24 +69,26 @@ export const NewsSection = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-12">НОВОСТИ</h2>
+        <h2 className="section-title mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {mockNews.map((news) => (
-            <div key={news.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={news.id} className="news-card">
               <img
                 src={newsImage}
                 alt={news.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-64 object-cover rounded-t-lg"
               />
               <div className="p-4">
-                <p className="text-sm text-gray-500 mb-2">
-                  {news.date} - {news.type}
+                <p className="mb-2">
+                  <span className="news-date">{news.date}</span>
+                  <span className="news-separator"> · </span>
+                  <span className="news-type">{news.type}</span>
                 </p>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{news.title}</h3>
+                <h3 className="news-card-title">{news.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{news.excerpt}</p>
                 <Link
                   to={`/news/${news.id}`}
-                  className="text-blue-600 hover:text-blue-700 font-medium text-sm"
+                  className="news-link"
                 >
                   Подробнее &gt;
                 </Link>
