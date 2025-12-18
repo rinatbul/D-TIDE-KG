@@ -10,7 +10,6 @@ export const HeroSection = () => {
           alt="Hero"
           className="w-full h-auto object-contain"
         />
-        <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
       </div>
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none hero-text-container">
         <div className="text-center px-4">

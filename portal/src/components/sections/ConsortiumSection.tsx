@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import knuLogo from '/KNU.png';
 import image2 from '/image 2.png';
 import image5 from '/image 5.png';
@@ -19,15 +20,51 @@ const consortiumLogos = [
 ];
 
 export const ConsortiumSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollPositionRef = useRef(0);
+  const isPausedRef = useRef(false);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationId: number;
+    const scrollSpeed = 0.5;
+
+    const scroll = () => {
+      if (!isPausedRef.current && scrollContainer) {
+        scrollPositionRef.current += scrollSpeed;
+        if (scrollPositionRef.current >= scrollContainer.scrollWidth / 2) {
+          scrollPositionRef.current = 0;
+        }
+        scrollContainer.scrollLeft = scrollPositionRef.current;
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  const duplicatedLogos = [...consortiumLogos, ...consortiumLogos];
+
   return (
-    <section className="py-16 bg-blue-600">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">КОНСОРЦИУМ</h2>
-        <div className="flex gap-8 overflow-x-auto pb-4 scrollbar-hide">
-          {consortiumLogos.map((logo) => (
+    <section className="py-16 consortium-section">
+      <div className="max-w-screen-2xl mx-auto px-4">
+        <h2 className="consortium-title mb-12">КОНСОРЦИУМ</h2>
+        <div
+          ref={scrollRef}
+          className="flex gap-8 overflow-x-hidden overflow-y-visible py-6"
+          onMouseEnter={() => { isPausedRef.current = true; }}
+          onMouseLeave={() => { isPausedRef.current = false; }}
+        >
+          {duplicatedLogos.map((logo, index) => (
             <div
-              key={logo.id}
-              className="flex-shrink-0 bg-white rounded-lg p-6 flex items-center justify-center h-32 w-32"
+              key={`${logo.id}-${index}`}
+              className="consortium-card"
             >
               <img
                 src={logo.src}

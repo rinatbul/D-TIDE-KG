@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import newsImage from '/news.png';
 
 interface NewsItem {
@@ -10,56 +11,13 @@ interface NewsItem {
   excerpt: string;
 }
 
-const mockNews: NewsItem[] = [
-  {
-    id: 1,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 1',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-  {
-    id: 2,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 2',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-  {
-    id: 3,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 3',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-  {
-    id: 4,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 4',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-  {
-    id: 5,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 5',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-  {
-    id: 6,
-    date: '10.01.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Заголовок новости 6',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-  },
-];
+const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
+  id: i + 1,
+  date: `${10 + (i % 20)}.${(i % 12) + 1}.2025`,
+  type: i % 2 === 0 ? 'МЕРОПРИЯТИЯ' : 'СЕМИНАР',
+  title: `Заголовок новости ${i + 1}`,
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
+}));
 
 export const NewsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,7 +29,7 @@ export const NewsSection = () => {
       <div className="container mx-auto px-4">
         <h2 className="section-title mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {mockNews.map((news) => (
+          {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
             <div key={news.id} className="news-card">
               <img
                 src={newsImage}
@@ -97,19 +55,57 @@ export const NewsSection = () => {
           ))}
         </div>
         <div className="flex justify-center items-center gap-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+            disabled={currentPage === 1}
+            className="pagination-arrow"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          
+          <button
+            onClick={() => setCurrentPage(1)}
+            className={`pagination-btn ${currentPage === 1 ? 'pagination-btn-active' : ''}`}
+          >
+            1
+          </button>
+          
+          {currentPage > 3 && totalPages > 4 && (
+            <span className="pagination-dots">...</span>
+          )}
+          
+          {Array.from({ length: totalPages }, (_, i) => i + 1)
+            .filter(page => page !== 1 && page !== totalPages && Math.abs(page - currentPage) <= 1)
+            .map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`pagination-btn ${currentPage === page ? 'pagination-btn-active' : ''}`}
+              >
+                {page}
+              </button>
+            ))}
+          
+          {currentPage < totalPages - 2 && totalPages > 4 && (
+            <span className="pagination-dots">...</span>
+          )}
+          
+          {totalPages > 1 && (
             <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`px-4 py-2 rounded-md font-medium ${
-                currentPage === page
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
+              onClick={() => setCurrentPage(totalPages)}
+              className={`pagination-btn ${currentPage === totalPages ? 'pagination-btn-active' : ''}`}
             >
-              {page}
+              {totalPages}
             </button>
-          ))}
+          )}
+          
+          <button
+            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+            disabled={currentPage === totalPages}
+            className="pagination-arrow"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

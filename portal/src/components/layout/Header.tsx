@@ -1,39 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, ChevronDown, Menu, X, Globe } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Search, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '/logo.png';
+import russiaFlag from '/russia.png';
+import usFlag from '/us.png';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isWorkPackagesOpen, setIsWorkPackagesOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('Русский');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const workPackagesRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleWorkPackages = () => setIsWorkPackagesOpen(!isWorkPackagesOpen);
   const toggleLang = () => setIsLangOpen(!isLangOpen);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+  const currentFlag = currentLang === 'Русский' ? russiaFlag : usFlag;
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const getNavClass = (path: string) => {
+    const isActive = location.pathname === path;
+    return `nav-link ${isActive ? 'nav-link-active' : ''}`;
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (workPackagesRef.current && !workPackagesRef.current.contains(event.target as Node)) {
-        setIsWorkPackagesOpen(false);
-      }
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
         setIsLangOpen(false);
       }
@@ -54,39 +44,22 @@ export const Header = () => {
           </div>
 
           <nav className="hidden lg:flex items-center gap-6">
-            <Link to="/" className="nav-link text-blue-600 hover:text-blue-700">
+            <Link to="/" className={getNavClass('/')}>
               ГЛАВНАЯ
             </Link>
-            <Link to="/about" className="nav-link text-gray-700 hover:text-blue-600">
+            <Link to="/about" className={getNavClass('/about')}>
               О ПРОЕКТЕ
             </Link>
-            <Link to="/consortium" className="nav-link text-gray-700 hover:text-blue-600">
+            <Link to="/consortium" className={getNavClass('/consortium')}>
               КОНСОРЦИУМ
             </Link>
-            <div className="relative" ref={workPackagesRef}>
-              <button
-                onClick={toggleWorkPackages}
-                className="nav-link flex items-center gap-1 text-gray-700 hover:text-blue-600"
-              >
-                РАБОЧИЕ ПАКЕТЫ
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              {isWorkPackagesOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[200px] z-50">
-                  <Link
-                    to="/work-packages"
-                    onClick={() => setIsWorkPackagesOpen(false)}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  >
-                    Все пакеты
-                  </Link>
-                </div>
-              )}
-            </div>
-            <Link to="/documentation" className="nav-link text-gray-700 hover:text-blue-600">
+            <Link to="/work-packages" className={getNavClass('/work-packages')}>
+              РАБОЧИЕ ПАКЕТЫ
+            </Link>
+            <Link to="/documentation" className={getNavClass('/documentation')}>
               ДОКУМЕНТАЦИЯ
             </Link>
-            <Link to="/news" className="nav-link text-gray-700 hover:text-blue-600">
+            <Link to="/news" className={getNavClass('/news')}>
               НОВОСТИ
             </Link>
           </nav>
@@ -103,10 +76,9 @@ export const Header = () => {
             <div className="relative" ref={langRef}>
               <button
                 onClick={toggleLang}
-                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 font-medium"
+                className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
               >
-                <Globe className="w-4 h-4" />
-                {currentLang}
+                <img src={currentFlag} alt={currentLang} style={{ width: '17px', height: '17px' }} />
                 <ChevronDown className="w-4 h-4" />
               </button>
               {isLangOpen && (
@@ -116,8 +88,9 @@ export const Header = () => {
                       setCurrentLang('Русский');
                       setIsLangOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
+                    <img src={russiaFlag} alt="RU" style={{ width: '17px', height: '17px' }} />
                     Русский
                   </button>
                   <button
@@ -125,8 +98,9 @@ export const Header = () => {
                       setCurrentLang('English');
                       setIsLangOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
+                    <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                     English
                   </button>
                 </div>
@@ -147,46 +121,22 @@ export const Header = () => {
         <div className="lg:hidden w-full flex justify-center">
           <div className="header-container border-t border-gray-200">
             <nav className="py-4 flex flex-col gap-4 px-4">
-            <Link
-              to="/"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-blue-600"
-            >
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
               ГЛАВНАЯ
             </Link>
-            <Link
-              to="/about"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-gray-700 hover:text-blue-600"
-            >
+            <Link to="/about" onClick={() => setIsMenuOpen(false)} className={getNavClass('/about')}>
               О ПРОЕКТЕ
             </Link>
-            <Link
-              to="/consortium"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-gray-700 hover:text-blue-600"
-            >
+            <Link to="/consortium" onClick={() => setIsMenuOpen(false)} className={getNavClass('/consortium')}>
               КОНСОРЦИУМ
             </Link>
-            <Link
-              to="/work-packages"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-gray-700 hover:text-blue-600"
-            >
+            <Link to="/work-packages" onClick={() => setIsMenuOpen(false)} className={getNavClass('/work-packages')}>
               РАБОЧИЕ ПАКЕТЫ
             </Link>
-            <Link
-              to="/documentation"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-gray-700 hover:text-blue-600"
-            >
+            <Link to="/documentation" onClick={() => setIsMenuOpen(false)} className={getNavClass('/documentation')}>
               ДОКУМЕНТАЦИЯ
             </Link>
-            <Link
-              to="/news"
-              onClick={() => setIsMenuOpen(false)}
-              className="nav-link text-gray-700 hover:text-blue-600"
-            >
+            <Link to="/news" onClick={() => setIsMenuOpen(false)} className={getNavClass('/news')}>
               НОВОСТИ
             </Link>
             <div className="pt-4 border-t border-gray-200">
@@ -201,11 +151,10 @@ export const Header = () => {
               <div className="relative">
                 <button
                   onClick={toggleLang}
-                  className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-blue-600 font-medium w-full"
+                  className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
                 >
-                  <Globe className="w-4 h-4" />
-                  {currentLang}
-                  <ChevronDown className="w-4 h-4 ml-auto" />
+                  <img src={currentFlag} alt={currentLang} style={{ width: '17px', height: '17px' }} />
+                  <ChevronDown className="w-4 h-4" />
                 </button>
                 {isLangOpen && (
                   <div className="mt-2 bg-white border border-gray-200 rounded-md py-2">
@@ -214,8 +163,9 @@ export const Header = () => {
                         setCurrentLang('Русский');
                         setIsLangOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
+                      <img src={russiaFlag} alt="RU" style={{ width: '17px', height: '17px' }} />
                       Русский
                     </button>
                     <button
@@ -223,8 +173,9 @@ export const Header = () => {
                         setCurrentLang('English');
                         setIsLangOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
+                      <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                       English
                     </button>
                   </div>

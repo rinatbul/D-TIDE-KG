@@ -1,32 +1,36 @@
 import HeaderImage from '/HeaderImage.png';
 import euroFlag from '/euroFlag.png';
+import { Footer } from '../layout/Footer';
 
 export const ErasmusSection = () => {
   return (
-    <section className="relative h-[500px] flex items-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${HeaderImage})` }}
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
+    <section className="relative w-full flex items-center justify-center overflow-hidden">
+      <div className="relative w-full">
+        <img
+          src={HeaderImage}
+          alt="Erasmus"
+          className="w-full h-auto object-contain"
+        />
       </div>
-      <div className="relative z-10 container mx-auto px-4 flex items-center gap-8">
-        <div className="flex-shrink-0">
-          <img src={euroFlag} alt="EU Flag" className="h-32 w-auto" />
-        </div>
-        <div className="flex-1 text-white">
-          <p className="text-2xl md:text-3xl font-bold mb-6">
-            Co-funded by the Erasmus+ Programme of the European Union
+      <div className="absolute inset-0 flex flex-col justify-center z-10">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-8 mb-8">
+            <div className="flex-shrink-0">
+              <img src={euroFlag} alt="EU Flag" className="erasmus-section-flag" />
+            </div>
+            <h2 className="erasmus-section-title">
+              Co-funded by the<br />
+              Erasmus+ Programme of<br />
+              the European Union
+            </h2>
+          </div>
+          <p className="erasmus-section-description max-w-6xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestibulum porttitor. Cras vel hendrerit diam. Sed et lorem lacinia, aliquam lacus vitae, porta risus. Vestibulum ut velit sed nulla interdum placerat. Etiam turpis turpis, mollis vitae tortor sed, gravida faucibus sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at malesuda tortor, vel condimentum ligula. Etiam dapibus eros nibh, semper tempor odio fringilla quis. Praesent pulvinar quam ut leo vulputate pulvinar vel eget neque. Sed ultrices a nisi id interdum. Maecenas pharetra ante sit amet quam varius, sit amet aliquet nisl ultricies. Suspendisse et efficitur dui, rhoncus malesuada erat. Sed a libero sit amet felis molestie tincidunt nec ac ante. Etiam in urna enim. Suspendisse posuere nisl vel sapien convallis, et sollicitudin eros tincidunt.
           </p>
-          <p className="text-lg text-gray-200">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </p>
         </div>
+      </div>
+      <div className="absolute bottom-[20px] left-0 right-0 z-10">
+        <Footer />
       </div>
     </section>
   );

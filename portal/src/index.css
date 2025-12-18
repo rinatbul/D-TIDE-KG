@@ -98,11 +98,21 @@
     line-height: 100%;
     letter-spacing: 0%;
     text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #0072C6;
+  }
+
+  .nav-link-active {
+    color: #0072C6;
     text-decoration: underline;
     text-decoration-style: solid;
-    text-decoration-offset: 25%;
-    text-decoration-thickness: 11%;
-    text-decoration-skip-ink: auto;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
   }
 
   .hero-text-container {
@@ -195,6 +205,99 @@
     color: #0052B4;
   }
 
+  .pagination-btn {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-family: 'Onest', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #919EAB;
+    color: black;
+    opacity: 0.3;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .pagination-btn:hover {
+    background-color: #098D22;
+    opacity: 0.3;
+  }
+
+  .pagination-btn-active {
+    background-color: #098D22;
+    opacity: 0.3;
+  }
+
+  .pagination-arrow {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: #919EAB;
+    color: white;
+    opacity: 0.3;
+    transition: color 0.3s ease;
+  }
+
+  .pagination-arrow:hover:not(:disabled) {
+    color: #0052B4;
+  }
+
+  .pagination-arrow:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  .pagination-dots {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Onest', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #919EAB;
+  }
+
+  .consortium-section {
+    background-color: #0052B4;
+  }
+
+  .consortium-title {
+    font-family: 'Onest', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  .consortium-card {
+    flex-shrink: 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    width: 140px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .consortium-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10.9px 3px #FFFFFFB2;
+  }
+
   .hero-title {
     font-family: 'Onest', sans-serif;
     font-weight: 700;
@@ -248,5 +351,85 @@
     color: #003399;
     padding: 0 16px;
     flex: 1;
+  }
+
+  .erasmus-section-flag {
+    width: 20vw;
+    min-width: 200px;
+    height: auto;
+  }
+
+  .erasmus-section-title {
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    color: #000000;
+  }
+
+  .erasmus-section-description {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #000000;
+  }
+
+  .footer-container {
+    width: 1347px;
+    max-width: calc(100% - 48px);
+    background-color: white;
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 3.75rem;
+  }
+
+  @media (max-width: 1400px) {
+    .footer-container {
+      width: calc(100% - 48px);
+    }
+  }
+
+  .footer-logo {
+    width: 5vw;
+    min-width: 70px;
+    height: auto;
+  }
+
+  .footer-nav-link {
+    font-family: 'Onest', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #000000;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+  }
+
+  .footer-nav-link-active {
+    font-weight: 700;
+    color: #0072C6;
+  }
+
+  .footer-copyright {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+  }
+
+  .lang-text {
+    font-family: 'Onest', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
   }
 }
