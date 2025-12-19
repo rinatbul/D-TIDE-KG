@@ -443,7 +443,7 @@
   }
 
   .about-card-title {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Onest', sans-serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 100%;
@@ -461,7 +461,7 @@
   }
 
   .about-list-description {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Onest', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
@@ -473,5 +473,119 @@
     width: 45vw;
     min-width: 500px;
     max-width: 644px;
+  }
+
+  .breadcrumb-container {
+    padding: 0;
+  }
+
+  .breadcrumb-home {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .breadcrumb-home:hover {
+    opacity: 0.7;
+  }
+
+  .breadcrumb-home-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .breadcrumb-separator {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+  }
+
+  .breadcrumb-link {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: #0072C6;
+  }
+
+  .breadcrumb-current {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #000000;
+  }
+
+  .about-page-bg {
+    background-color: #F0F0F0;
+  }
+
+  .about-page-title {
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: left;
+    color: #000000;
+  }
+
+  .about-page-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 32px;
+  }
+
+  .about-page-card-green {
+    box-shadow: -7px 0px 4px 0px #1EB53A;
+  }
+
+  .about-page-card-blue {
+    box-shadow: -7px 0px 4px 0px #0072C6;
+  }
+
+  @media (max-width: 1400px) {
+    .breadcrumb-container {
+      width: calc(100% - 48px);
+    }
+  }
+
+  .breadcrumb-divider {
+    width: 1347px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+    height: 1px;
+    background-color: #D9D9D9;
+  }
+
+  @media (max-width: 1400px) {
+    .breadcrumb-divider {
+      width: calc(100% - 48px);
+    }
+  }
+
+  .about-page-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1024px) {
+    .about-page-image {
+      max-width: 100%;
+    }
   }
 }
