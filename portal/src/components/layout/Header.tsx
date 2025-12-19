@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '/logo.png';
 import russiaFlag from '/russia.png';
-import usFlag from '/us.png';
+import usFlag from '/united states.png';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
