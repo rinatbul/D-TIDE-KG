@@ -588,4 +588,50 @@
       max-width: 100%;
     }
   }
+
+  .consortium-page-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 341px;
+    height: 334px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (min-width: 1024px) {
+    .consortium-page-card {
+      width: 341px;
+    }
+  }
+
+  .consortium-page-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 0px 25.1px 0px #00000040;
+  }
+
+  .consortium-page-card-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .consortium-page-card-text {
+    font-family: 'Onest', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+  }
 }
