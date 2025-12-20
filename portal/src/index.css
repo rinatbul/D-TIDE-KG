@@ -91,6 +91,13 @@
     }
   }
 
+  .header-container-scrolled {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
   .nav-link {
     font-family: 'Onest', sans-serif;
     font-weight: 500;

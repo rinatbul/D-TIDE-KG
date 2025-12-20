@@ -10,6 +10,7 @@ export const Header = () => {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('Русский');
+  const [isScrolled, setIsScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -41,16 +42,26 @@ export const Header = () => {
       }
     };
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    handleScroll();
+
     document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-<header className={`fixed z-50 w-full top-[5vh] pointer-events-none`}>
-      <div className="w-full flex justify-center">
-        <div className="header-container flex items-center justify-between pointer-events-auto">
+    <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
+      <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
+        <div className={`header-container ${isScrolled ? 'header-container-scrolled' : ''} flex items-center justify-between pointer-events-auto`}>
           <div className="flex items-center gap-3">
             <img src={logo} alt="D-TIDE-KG" className="h-12 w-auto" />
           </div>
@@ -149,8 +160,8 @@ export const Header = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden w-full flex justify-center">
-          <div className="header-container border-t border-gray-200">
+        <div className={`lg:hidden w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
+          <div className={`header-container ${isScrolled ? 'header-container-scrolled' : ''} border-t border-gray-200`}>
             <nav className="py-4 flex flex-col gap-4 px-4">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
               ГЛАВНАЯ
