@@ -4,6 +4,7 @@ import { Search, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '/logo.png';
 import russiaFlag from '/russia.png';
 import usFlag from '/united states.png';
+import kyrgyzstanFlag from '/kyrgyzstan.png';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,12 @@ export const Header = () => {
     }
   };
 
-  const currentFlag = currentLang === 'Русский' ? russiaFlag : usFlag;
+  const getCurrentFlag = () => {
+    if (currentLang === 'Русский') return russiaFlag;
+    if (currentLang === 'English') return usFlag;
+    if (currentLang === 'Кыргызча') return kyrgyzstanFlag;
+    return russiaFlag;
+  };
 
   const getNavClass = (path: string) => {
     const isActive = location.pathname === path;
@@ -62,7 +68,7 @@ export const Header = () => {
     <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
       <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
         <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] ${isScrolled ? 'h-16' : 'h-[109px]'} pointer-events-auto transition-all duration-300`}>
-          <div className={`${isScrolled ? 'container mx-auto px-4' : 'px-4'} flex items-center justify-between h-full`}>
+          <div className={`${isScrolled ? 'container mx-auto px-6' : 'px-6'} flex items-center justify-between h-full`}>
             <div className="flex items-center gap-3">
               <img src={logo} alt="D-TIDE-KG" className={`${isScrolled ? 'h-8' : 'h-12'} w-auto transition-all duration-300`} />
             </div>
@@ -121,7 +127,7 @@ export const Header = () => {
                 onClick={toggleLang}
                 className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
               >
-                <img src={currentFlag} alt={currentLang} style={{ width: '17px', height: '17px' }} />
+                <img src={getCurrentFlag()} alt={currentLang} style={{ width: '17px', height: '17px' }} />
                 <ChevronDown className="w-4 h-4" />
               </button>
               {isLangOpen && (
@@ -145,6 +151,16 @@ export const Header = () => {
                   >
                     <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                     English
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCurrentLang('Кыргызча');
+                      setIsLangOpen(false);
+                    }}
+                    className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  >
+                    <img src={kyrgyzstanFlag} alt="KG" style={{ width: '17px', height: '17px' }} />
+                    Кыргызча
                   </button>
                 </div>
               )}
@@ -215,7 +231,7 @@ export const Header = () => {
                   onClick={toggleLang}
                   className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
                 >
-                  <img src={currentFlag} alt={currentLang} style={{ width: '17px', height: '17px' }} />
+                  <img src={getCurrentFlag()} alt={currentLang} style={{ width: '17px', height: '17px' }} />
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {isLangOpen && (
@@ -239,6 +255,16 @@ export const Header = () => {
                     >
                       <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                       English
+                    </button>
+                    <button
+                      onClick={() => {
+                        setCurrentLang('Кыргызча');
+                        setIsLangOpen(false);
+                      }}
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
+                      <img src={kyrgyzstanFlag} alt="KG" style={{ width: '17px', height: '17px' }} />
+                      Кыргызча
                     </button>
                   </div>
                 )}

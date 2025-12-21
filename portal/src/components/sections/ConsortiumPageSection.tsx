@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import knuLogo from '/KNU.png';
 import image2 from '/image 2.png';
 import image5 from '/image 5.png';
@@ -89,14 +87,9 @@ const consortiumMembers = [
 ];
 
 export const ConsortiumPageSection = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
-  const totalPages = Math.ceil(consortiumMembers.length / itemsPerPage);
-
   return (
-    <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-18 mb-8 justify-items-center">
-        {consortiumMembers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((member) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-18 justify-items-center">
+      {consortiumMembers.map((member) => (
           <div
             key={member.id}
             className="bg-white rounded-lg p-6 flex flex-col items-center justify-center gap-4 w-full max-w-[341px] h-[334px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_25.1px_0px_rgba(0,0,0,0.25)]"
@@ -110,62 +103,8 @@ export const ConsortiumPageSection = () => {
             </div>
             <p className="font-onest font-medium text-xl leading-none text-center text-black m-0">{member.name}</p>
           </div>
-        ))}
-      </div>
-      <div className="flex justify-center items-center gap-2">
-        <button
-          onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-          disabled={currentPage === 1}
-          className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        
-        <button
-          onClick={() => setCurrentPage(1)}
-          className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-        >
-          1
-        </button>
-        
-        {currentPage > 3 && totalPages > 4 && (
-          <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
-        )}
-        
-        {Array.from({ length: totalPages }, (_, i) => i + 1)
-          .filter(page => page !== 1 && page !== totalPages && Math.abs(page - currentPage) <= 1)
-          .map((page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-            >
-              {page}
-            </button>
-          ))}
-        
-        {currentPage < totalPages - 2 && totalPages > 4 && (
-          <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
-        )}
-        
-        {totalPages > 1 && (
-          <button
-            onClick={() => setCurrentPage(totalPages)}
-            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-          >
-            {totalPages}
-          </button>
-        )}
-        
-        <button
-          onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-          disabled={currentPage === totalPages}
-          className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
