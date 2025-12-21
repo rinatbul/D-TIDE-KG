@@ -42,7 +42,7 @@ export const WorkPackageDetail = () => {
     return (
       <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
         <Header />
-        <main className="flex-1 pt-[calc(5vh+109px+24px)]">
+        <main className="flex-1 pt-50">
           <div className="container mx-auto px-4">
             <h1>Рабочий пакет не найден</h1>
           </div>
@@ -54,8 +54,8 @@ export const WorkPackageDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
       <Header />
-      <main className="flex-1 pt-[calc(5vh+109px+24px)]">
-        <div className="container mx-auto px-4 mb-8">
+      <main className="flex-1 pt-50">
+        <div className="container mx-auto px-4 mb-6">
           <Breadcrumb
             items={[
               { label: 'Рабочие пакеты', path: '/work-packages' },
@@ -64,11 +64,11 @@ export const WorkPackageDetail = () => {
           />
         </div>
 
-        <div className="container mx-auto h-px bg-[#D9D9D9]"></div>
+        <div className="container mx-auto h-px bg-[#D9D9D9] mb-5"></div>
 
         <section className="mb-21 bg-[#F0F0F0]">
           <div className="container mx-auto px-4">
-            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-8">{workPackage.title}</h1>
+            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">{workPackage.title}</h1>
             <div className="font-onest font-normal text-base leading-none text-black">
               {workPackage.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-6">
