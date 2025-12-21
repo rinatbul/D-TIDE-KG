@@ -61,12 +61,13 @@ export const Header = () => {
   return (
     <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
       <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
-        <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-[109px] flex items-center justify-between pointer-events-auto transition-all duration-300 px-4`}>
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="D-TIDE-KG" className="h-12 w-auto" />
-          </div>
+        <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] ${isScrolled ? 'h-16' : 'h-[109px]'} pointer-events-auto transition-all duration-300`}>
+          <div className={`${isScrolled ? 'container mx-auto px-4' : 'px-4'} flex items-center justify-between h-full`}>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="D-TIDE-KG" className={`${isScrolled ? 'h-8' : 'h-12'} w-auto transition-all duration-300`} />
+            </div>
 
-          <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-6">
             <Link to="/" className={getNavClass('/')}>
               ГЛАВНАЯ
             </Link>
@@ -87,7 +88,7 @@ export const Header = () => {
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
             <div className="relative w-24" ref={searchRef}>
               {isSearchOpen ? (
                 <div className="flex items-center gap-2">
@@ -150,19 +151,21 @@ export const Header = () => {
             </div>
           </div>
 
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden text-gray-700 hover:text-blue-600"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <button
+              onClick={toggleMenu}
+              className="lg:hidden text-gray-700 hover:text-blue-600"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {isMenuOpen && (
         <div className={`lg:hidden w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
-          <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-auto border-t border-gray-200 px-4`}>
-            <nav className="py-4 flex flex-col gap-4 px-4">
+          <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-auto border-t border-gray-200`}>
+            <div className={`${isScrolled ? 'container mx-auto px-4' : 'px-4'}`}>
+              <nav className="py-4 flex flex-col gap-4">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
               ГЛАВНАЯ
             </Link>
@@ -240,8 +243,9 @@ export const Header = () => {
                   </div>
                 )}
               </div>
+              </div>
+              </nav>
             </div>
-            </nav>
           </div>
         </div>
       )}
