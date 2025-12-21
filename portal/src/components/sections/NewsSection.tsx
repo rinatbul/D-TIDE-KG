@@ -27,10 +27,10 @@ export const NewsSection = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-12">НОВОСТИ</h2>
+        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
-            <div key={news.id} className="news-card">
+            <div key={news.id} className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-shadow duration-300 hover:shadow-[3px_3px_10px_0px_rgba(0,0,0,0.2)]">
               <img
                 src={newsImage}
                 alt={news.title}
@@ -38,15 +38,15 @@ export const NewsSection = () => {
               />
               <div className="p-4">
                 <p className="mb-2">
-                  <span className="news-date">{news.date}</span>
-                  <span className="news-separator"> · </span>
-                  <span className="news-type">{news.type}</span>
+                  <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{news.date}</span>
+                  <span className="font-onest text-[10px] text-black"> · </span>
+                  <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
                 </p>
-                <h3 className="news-card-title">{news.title}</h3>
+                <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-blue-primary">{news.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{news.excerpt}</p>
                 <Link
                   to={`/news/${news.id}`}
-                  className="news-link"
+                  className="font-onest font-medium text-xs leading-none text-blue-primary no-underline"
                 >
                   Подробнее &gt;
                 </Link>
@@ -58,20 +58,20 @@ export const NewsSection = () => {
           <button
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="pagination-arrow"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           
           <button
             onClick={() => setCurrentPage(1)}
-            className={`pagination-btn ${currentPage === 1 ? 'pagination-btn-active' : ''}`}
+            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
           >
             1
           </button>
           
           {currentPage > 3 && totalPages > 4 && (
-            <span className="pagination-dots">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
           )}
           
           {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -80,20 +80,20 @@ export const NewsSection = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`pagination-btn ${currentPage === page ? 'pagination-btn-active' : ''}`}
+                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
               >
                 {page}
               </button>
             ))}
           
           {currentPage < totalPages - 2 && totalPages > 4 && (
-            <span className="pagination-dots">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
           )}
           
           {totalPages > 1 && (
             <button
               onClick={() => setCurrentPage(totalPages)}
-              className={`pagination-btn ${currentPage === totalPages ? 'pagination-btn-active' : ''}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
             >
               {totalPages}
             </button>
@@ -102,7 +102,7 @@ export const NewsSection = () => {
           <button
             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
-            className="pagination-arrow"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-4 h-4" />
           </button>

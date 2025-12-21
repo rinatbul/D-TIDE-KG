@@ -99,16 +99,16 @@ export const ConsortiumPageSection = () => {
         {consortiumMembers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((member) => (
           <div
             key={member.id}
-            className="consortium-page-card"
+            className="bg-white rounded-lg p-6 flex flex-col items-center justify-center gap-4 w-full max-w-[341px] h-[334px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_25.1px_0px_rgba(0,0,0,0.25)]"
           >
-            <div className="consortium-page-card-logo">
+            <div className="flex items-center justify-center h-[100px] w-full mb-2">
               <img
                 src={member.src}
                 alt={member.alt}
                 className="max-h-full max-w-full object-contain"
               />
             </div>
-            <p className="consortium-page-card-text">{member.name}</p>
+            <p className="font-onest font-medium text-xl leading-none text-center text-black m-0">{member.name}</p>
           </div>
         ))}
       </div>
@@ -116,20 +116,20 @@ export const ConsortiumPageSection = () => {
         <button
           onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
-          className="pagination-arrow"
+          className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
         
         <button
           onClick={() => setCurrentPage(1)}
-          className={`pagination-btn ${currentPage === 1 ? 'pagination-btn-active' : ''}`}
+          className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
         >
           1
         </button>
         
         {currentPage > 3 && totalPages > 4 && (
-          <span className="pagination-dots">...</span>
+          <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
         )}
         
         {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -138,20 +138,20 @@ export const ConsortiumPageSection = () => {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`pagination-btn ${currentPage === page ? 'pagination-btn-active' : ''}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
             >
               {page}
             </button>
           ))}
         
         {currentPage < totalPages - 2 && totalPages > 4 && (
-          <span className="pagination-dots">...</span>
+          <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
         )}
         
         {totalPages > 1 && (
           <button
             onClick={() => setCurrentPage(totalPages)}
-            className={`pagination-btn ${currentPage === totalPages ? 'pagination-btn-active' : ''}`}
+            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
           >
             {totalPages}
           </button>
@@ -160,7 +160,7 @@ export const ConsortiumPageSection = () => {
         <button
           onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
           disabled={currentPage === totalPages}
-          className="pagination-arrow"
+          className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
         >
           <ChevronRight className="w-4 h-4" />
         </button>

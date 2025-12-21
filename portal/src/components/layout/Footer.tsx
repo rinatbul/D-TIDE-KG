@@ -9,15 +9,15 @@ export const Footer = () => {
 
   const getLinkClass = (path: string) => {
     const isActive = location.pathname === path;
-    return `footer-nav-link ${isActive ? 'footer-nav-link-active' : ''}`;
+    return `font-onest font-medium text-base leading-none uppercase text-black no-underline transition-all duration-300 hover:text-blue-secondary ${isActive ? 'font-bold text-blue-secondary' : ''}`;
   };
 
   return (
     <footer className="w-full flex justify-center">
-      <div className="footer-container">
+      <div className="container mx-auto bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] py-6 px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="D-TIDE-KG" className="footer-logo" />
+            <img src={logo} alt="D-TIDE-KG" className="w-[5vw] min-w-[70px] h-auto" />
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
@@ -55,7 +55,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-200 mt-4 pt-4">
-          <p className="footer-copyright text-center">
+          <p className="font-onest font-normal text-lg leading-none text-black text-center">
             © 2025 D-TIDE-KG. Сайт не является публичной офертой
           </p>
         </div>

@@ -32,17 +32,17 @@ export const WorkPackagesPageSection = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-18 gap-x-18">
       {workPackages.map((wp) => (
-        <div key={wp.id} className="work-package-card">
-          <div className="work-package-card-image">
+        <div key={wp.id} className="bg-white w-[31.375rem] h-[26.875rem] rounded-[0.625rem] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_25.1px_0px_rgba(0,0,0,0.25)]">
+          <div className="w-full h-[300px] overflow-hidden">
             <img
               src={wp.image}
               alt={wp.title}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="work-package-card-content">
-            <h3 className="work-package-card-title">{wp.title}</h3>
-            <Link to={wp.link} className="work-package-card-link">
+          <div className="p-6">
+            <h3 className="font-onest font-bold text-xl leading-none text-black mb-4">{wp.title}</h3>
+            <Link to={wp.link} className="font-onest font-medium text-xs leading-none text-blue-primary no-underline transition-colors duration-300 hover:text-blue-secondary">
               Подробнее &gt;
             </Link>
           </div>

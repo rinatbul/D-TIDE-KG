@@ -35,12 +35,12 @@ const newsItems: NewsItem[] = [
 
 export const WorkPackageNewsSection = () => {
   return (
-    <section className="py-16 about-page-bg">
+    <section className="py-16 bg-[#F0F0F0]">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-12">НОВОСТИ:</h2>
+        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ:</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {newsItems.map((news) => (
-            <div key={news.id} className="news-card">
+            <div key={news.id} className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-shadow duration-300 hover:shadow-[3px_3px_10px_0px_rgba(0,0,0,0.2)]">
               <img
                 src={newsImage}
                 alt={news.title}
@@ -48,15 +48,15 @@ export const WorkPackageNewsSection = () => {
               />
               <div className="p-4">
                 <p className="mb-2">
-                  <span className="news-date">{news.date}</span>
-                  <span className="news-separator"> · </span>
-                  <span className="news-type">{news.type}</span>
+                  <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{news.date}</span>
+                  <span className="font-onest text-[10px] text-black"> · </span>
+                  <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
                 </p>
-                <h3 className="news-card-title">{news.title}</h3>
+                <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-blue-primary">{news.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{news.excerpt}</p>
                 <Link
                   to={`/news/${news.id}`}
-                  className="news-link"
+                  className="font-onest font-medium text-xs leading-none text-blue-primary no-underline"
                 >
                   Подробнее &gt;
                 </Link>
@@ -65,7 +65,7 @@ export const WorkPackageNewsSection = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link to="/news" className="work-package-more-news-btn">
+          <Link to="/news" className="font-onest font-medium text-base leading-none text-blue-primary border-2 border-blue-primary rounded-lg py-3 px-8 no-underline transition-all duration-300 hover:bg-blue-primary hover:text-white">
             Больше новостей
           </Link>
         </div>

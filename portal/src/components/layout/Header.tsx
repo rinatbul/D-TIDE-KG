@@ -29,7 +29,7 @@ export const Header = () => {
 
   const getNavClass = (path: string) => {
     const isActive = location.pathname === path;
-    return `nav-link ${isActive ? 'nav-link-active' : ''}`;
+    return `font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 ${isActive ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`;
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export const Header = () => {
   return (
     <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
       <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
-        <div className={`header-container ${isScrolled ? 'header-container-scrolled' : ''} flex items-center justify-between pointer-events-auto`}>
+        <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-[109px] flex items-center justify-between pointer-events-auto transition-all duration-300 px-4`}>
           <div className="flex items-center gap-3">
             <img src={logo} alt="D-TIDE-KG" className="h-12 w-auto" />
           </div>
@@ -91,7 +91,7 @@ export const Header = () => {
             <div className="relative w-24" ref={searchRef}>
               {isSearchOpen ? (
                 <div className="flex items-center gap-2">
-                  <Search className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                  <Search className="w-4 h-4 text-gray-500 shrink-0" />
                   <input
                     ref={searchInputRef}
                     type="text"
@@ -100,7 +100,7 @@ export const Header = () => {
                   />
                   <button
                     onClick={toggleSearch}
-                    className="text-gray-400 hover:text-gray-600 flex-shrink-0"
+                    className="text-gray-400 hover:text-gray-600 shrink-0"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -111,7 +111,7 @@ export const Header = () => {
                   className="flex items-center gap-2 py-1"
                 >
                   <Search className="w-4 h-4 text-gray-500" />
-                  <span className="search-text">Поиск</span>
+                  <span className="font-onest font-normal text-base leading-none text-black">Поиск</span>
                 </button>
               )}
             </div>
@@ -161,7 +161,7 @@ export const Header = () => {
 
       {isMenuOpen && (
         <div className={`lg:hidden w-full ${isScrolled ? 'flex' : 'flex justify-center'}`}>
-          <div className={`header-container ${isScrolled ? 'header-container-scrolled' : ''} border-t border-gray-200`}>
+          <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'container mx-auto'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-auto border-t border-gray-200 px-4`}>
             <nav className="py-4 flex flex-col gap-4 px-4">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
               ГЛАВНАЯ

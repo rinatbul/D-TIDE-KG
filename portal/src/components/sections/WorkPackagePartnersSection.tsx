@@ -14,12 +14,12 @@ const partners = [
 
 export const WorkPackagePartnersSection = () => {
   return (
-    <section className="py-16 work-package-partners-section">
+    <section className="py-16 bg-blue-primary">
       <div className="container mx-auto px-4">
-        <h2 className="work-package-partners-title mb-12">ОТВЕТСТВЕННЫЕ ПАРТНЕРЫ:</h2>
+        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-white mb-12">ОТВЕТСТВЕННЫЕ ПАРТНЕРЫ:</h2>
         <div className="flex flex-wrap justify-center gap-6">
           {partners.map((partner) => (
-            <div key={partner.id} className="work-package-partner-card">
+            <div key={partner.id} className="bg-white rounded-[10px] p-6 flex items-center justify-center h-[140px] w-[140px] transition-all duration-300 hover:scale-105 hover:shadow-[0px_0px_10.9px_3px_rgba(255,255,255,0.7)]">
               <img
                 src={partner.src}
                 alt={partner.alt}

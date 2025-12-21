@@ -40,7 +40,7 @@ export const WorkPackageDetail = () => {
 
   if (!workPackage) {
     return (
-      <div className="min-h-screen flex flex-col about-page-bg">
+      <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
         <Header />
         <main className="flex-1 pt-[calc(5vh+109px+24px)]">
           <div className="container mx-auto px-4">
@@ -52,7 +52,7 @@ export const WorkPackageDetail = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col about-page-bg">
+    <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
       <Header />
       <main className="flex-1 pt-[calc(5vh+109px+24px)]">
         <div className="container mx-auto px-4 mb-8">
@@ -64,12 +64,12 @@ export const WorkPackageDetail = () => {
           />
         </div>
 
-        <div className="breadcrumb-divider"></div>
+        <div className="container mx-auto h-px bg-[#D9D9D9]"></div>
 
-        <section className="py-8 about-page-bg">
+        <section className="py-8 bg-[#F0F0F0]">
           <div className="container mx-auto px-4">
-            <h1 className="about-page-title mb-8">{workPackage.title}</h1>
-            <div className="work-package-content">
+            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-8">{workPackage.title}</h1>
+            <div className="font-onest font-normal text-base leading-none text-black">
               {workPackage.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-6">
                   {paragraph}
@@ -78,7 +78,7 @@ export const WorkPackageDetail = () => {
               <img
                 src={contentPhoto}
                 alt={workPackage.title}
-                className="work-package-content-image"
+                className="w-full max-w-full h-auto mt-16 mb-16 rounded-lg"
               />
             </div>
           </div>

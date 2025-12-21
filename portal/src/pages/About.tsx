@@ -41,32 +41,32 @@ export const About = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col about-page-bg">
+    <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
       <Header />
       <main className="flex-1 pt-[calc(5vh+109px+24px)]">
         <div className="container mx-auto px-4 mb-8">
           <Breadcrumb items={[{ label: 'О проекте' }]} />
         </div>
 
-        <div className="breadcrumb-divider"></div>
+        <div className="container mx-auto h-px bg-[#D9D9D9]"></div>
 
         <section className="py-8">
           <div className="container mx-auto px-4">
-            <h1 className="about-page-title mb-16">О проекте</h1>
+            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-16">О проекте</h1>
 
             <div className="space-y-8">
-              <div className="about-page-card about-page-card-green">
+              <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#1EB53A]">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-6">
                       <img src={projectGoalsIcon} alt="Цели проекта" style={{ width: '37px', height: '37px' }} />
-                      <h2 className="about-card-title">Цель проекта</h2>
+                      <h2 className="font-onest font-bold text-xl leading-none text-black">Цель проекта</h2>
                     </div>
                     <ol className="space-y-3">
                       {projectGoals.map((goal, index) => (
                         <li key={index} className="flex gap-3 items-baseline">
-                          <span className="about-list-description shrink-0">{index + 1}.</span>
-                          <span className="about-list-description">{goal}</span>
+                          <span className="font-onest font-normal text-base leading-none text-black shrink-0">{index + 1}.</span>
+                          <span className="font-onest font-normal text-base leading-none text-black">{goal}</span>
                         </li>
                       ))}
                     </ol>
@@ -75,19 +75,19 @@ export const About = () => {
                     <img
                       src={HeaderImage}
                       alt="Цель проекта"
-                      className="about-page-image"
+                      className="w-full max-w-[500px] h-auto rounded-lg object-cover"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="about-page-card about-page-card-blue">
+              <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#0072C6]">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
                   <div className="shrink-0">
                     <img
                       src={HeaderImage}
                       alt="Задачи проекта"
-                      className="about-page-image"
+                      className="w-full max-w-[500px] h-auto rounded-lg object-cover"
                     />
                   </div>
                   <div className="flex-1">
@@ -96,15 +96,15 @@ export const About = () => {
                         <img src={rectangleIcon} alt="" className="absolute inset-0 w-full h-full" />
                         <img src={goalIcon} alt="Задачи" className="absolute inset-0 w-full h-full p-1" />
                       </div>
-                      <h2 className="about-card-title">Задачи проекта</h2>
+                      <h2 className="font-onest font-bold text-xl leading-none text-black">Задачи проекта</h2>
                     </div>
                     <ol className="space-y-4">
                       {projectTasks.map((task, index) => (
                         <li key={index} className="flex gap-3 items-baseline">
-                          <span className="about-list-item text-blue-600 shrink-0">{index + 1}.</span>
+                          <span className="font-nunito font-bold text-base leading-none text-blue-600 shrink-0">{index + 1}.</span>
                           <div>
-                            <span className="about-list-item block">{task.title}</span>
-                            <p className="about-list-description mt-1">{task.description}</p>
+                            <span className="font-nunito font-bold text-base leading-none text-black block">{task.title}</span>
+                            <p className="font-onest font-normal text-base leading-none text-black mt-1">{task.description}</p>
                           </div>
                         </li>
                       ))}

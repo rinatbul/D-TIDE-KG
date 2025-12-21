@@ -33,29 +33,29 @@ export const DocumentationSection = () => {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
-        <h1 className="about-page-title mb-16">Документация</h1>
+        <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-16">Документация</h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 documentation-grid mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[6.125rem] gap-y-7 mb-8">
           {paginatedDocuments.map((doc) => (
-            <div key={doc.id} className="documentation-card">
+            <div key={doc.id} className="bg-white border border-gray-text rounded-[10px] py-[15px] px-5 transition-shadow duration-300 hover:shadow-[0px_4px_12px_rgba(0,0,0,0.1)]">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <div className="shrink-0">
-                    <img src={pdfIcon} alt="PDF" className="documentation-pdf-icon" />
+                    <img src={pdfIcon} alt="PDF" className="w-[51px] h-[51px] object-contain" />
                   </div>
-                  <h3 className="documentation-card-title flex-1 min-w-0">{doc.title}</h3>
+                  <h3 className="font-onest font-normal text-base leading-[140%] text-black mb-2 flex-1 min-w-0">{doc.title}</h3>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3 flex-wrap">
-                    <span className="documentation-date">{doc.date}</span>
-                    <span className="documentation-separator"></span>
-                    <span className="documentation-meta">{doc.format}</span>
-                    <span className="documentation-separator"></span>
-                    <span className="documentation-meta">{doc.size}</span>
+                    <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{doc.date}</span>
+                    <span className="w-0.5 h-0.5 bg-gray-text rounded-full flex-shrink-0"></span>
+                    <span className="font-onest font-medium text-[10px] leading-none text-center uppercase text-black">{doc.format}</span>
+                    <span className="w-0.5 h-0.5 bg-gray-text rounded-full flex-shrink-0"></span>
+                    <span className="font-onest font-medium text-[10px] leading-none text-center uppercase text-black">{doc.size}</span>
                   </div>
-                  <button className="documentation-download-btn shrink-0">
-                    <span className="documentation-download-text">Скачать</span>
-                    <img src={downloadIcon} alt="Скачать" className="documentation-download-icon" />
+                  <button className="flex flex-row items-center gap-1 bg-none border-none cursor-pointer transition-opacity duration-300 hover:opacity-70 p-1 shrink-0">
+                    <span className="font-onest font-medium text-[10px] leading-none text-blue-secondary">Скачать</span>
+                    <img src={downloadIcon} alt="Скачать" className="w-5 h-5 object-contain" />
                   </button>
                 </div>
               </div>
@@ -67,20 +67,20 @@ export const DocumentationSection = () => {
           <button
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="pagination-arrow"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           
           <button
             onClick={() => setCurrentPage(1)}
-            className={`pagination-btn ${currentPage === 1 ? 'pagination-btn-active' : ''}`}
+            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
           >
             1
           </button>
           
           {currentPage > 3 && totalPages > 4 && (
-            <span className="pagination-dots">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
           )}
           
           {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -89,20 +89,20 @@ export const DocumentationSection = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`pagination-btn ${currentPage === page ? 'pagination-btn-active' : ''}`}
+                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
               >
                 {page}
               </button>
             ))}
           
           {currentPage < totalPages - 2 && totalPages > 4 && (
-            <span className="pagination-dots">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
           )}
           
           {totalPages > 1 && (
             <button
               onClick={() => setCurrentPage(totalPages)}
-              className={`pagination-btn ${currentPage === totalPages ? 'pagination-btn-active' : ''}`}
+              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
             >
               {totalPages}
             </button>
@@ -111,7 +111,7 @@ export const DocumentationSection = () => {
           <button
             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
-            className="pagination-arrow"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-4 h-4" />
           </button>

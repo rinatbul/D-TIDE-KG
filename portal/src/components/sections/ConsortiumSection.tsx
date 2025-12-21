@@ -52,9 +52,9 @@ export const ConsortiumSection = () => {
   const duplicatedLogos = [...consortiumLogos, ...consortiumLogos];
 
   return (
-    <section className="py-16 consortium-section">
+    <section className="py-16 bg-blue-primary">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <h2 className="consortium-title mb-12">КОНСОРЦИУМ</h2>
+        <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
         <div
           ref={scrollRef}
           className="flex gap-8 overflow-x-hidden overflow-y-visible py-6"
@@ -64,7 +64,7 @@ export const ConsortiumSection = () => {
           {duplicatedLogos.map((logo, index) => (
             <div
               key={`${logo.id}-${index}`}
-              className="consortium-card"
+              className="shrink-0 bg-white rounded-[10px] p-6 flex items-center justify-center h-[140px] w-[140px] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_10.9px_3px_rgba(255,255,255,0.7)]"
             >
               <img
                 src={logo.src}
