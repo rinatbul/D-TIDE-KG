@@ -25,7 +25,7 @@ export const NewsSection = () => {
   const totalPages = Math.ceil(mockNews.length / itemsPerPage);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="mb-21 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">

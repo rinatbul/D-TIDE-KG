@@ -14,7 +14,7 @@ export const WorkPackages = () => {
 
         <div className="container mx-auto h-px bg-[#D9D9D9]"></div>
 
-        <section className="py-8 mb-16">
+        <section className="mb-21">
           <div className="container mx-auto px-4">
             <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-16">Рабочие пакеты</h1>
             <WorkPackagesPageSection />

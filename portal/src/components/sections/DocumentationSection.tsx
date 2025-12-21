@@ -31,7 +31,7 @@ export const DocumentationSection = () => {
   );
 
   return (
-    <section className="py-8">
+    <section className="mb-21">
       <div className="container mx-auto px-4">
         <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-16">Документация</h1>
 

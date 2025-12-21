@@ -37,7 +37,7 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="mb-21 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">О ПРОЕКТЕ</h2>
         <div className="flex flex-col md:flex-row gap-16 justify-center">

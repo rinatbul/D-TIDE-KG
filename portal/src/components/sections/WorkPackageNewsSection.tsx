@@ -35,7 +35,7 @@ const newsItems: NewsItem[] = [
 
 export const WorkPackageNewsSection = () => {
   return (
-    <section className="py-16 bg-[#F0F0F0]">
+    <section className="mb-21 bg-[#F0F0F0]">
       <div className="container mx-auto px-4">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ:</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">

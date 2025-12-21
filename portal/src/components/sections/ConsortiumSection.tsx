@@ -52,7 +52,7 @@ export const ConsortiumSection = () => {
   const duplicatedLogos = [...consortiumLogos, ...consortiumLogos];
 
   return (
-    <section className="py-16 bg-blue-primary">
+    <section className="mb-21 bg-blue-primary">
       <div className="max-w-screen-2xl mx-auto px-4">
         <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
         <div

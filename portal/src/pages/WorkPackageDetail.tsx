@@ -66,7 +66,7 @@ export const WorkPackageDetail = () => {
 
         <div className="container mx-auto h-px bg-[#D9D9D9]"></div>
 
-        <section className="py-8 bg-[#F0F0F0]">
+        <section className="mb-21 bg-[#F0F0F0]">
           <div className="container mx-auto px-4">
             <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-8">{workPackage.title}</h1>
             <div className="font-onest font-normal text-base leading-none text-black">
