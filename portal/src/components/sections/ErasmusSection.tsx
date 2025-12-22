@@ -4,12 +4,12 @@ import { Footer } from '../layout/Footer';
 
 export const ErasmusSection = () => {
   return (
-    <section className="relative w-full flex items-center justify-center overflow-hidden">
-      <div className="relative w-full">
+    <section className="relative w-full h-screen max-h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full">
         <img
           src={HeaderImage}
           alt="Erasmus"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="absolute inset-0 flex flex-col justify-center z-10">

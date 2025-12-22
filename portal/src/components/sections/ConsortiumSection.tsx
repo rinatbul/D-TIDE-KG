@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import knuLogo from '/KNU.png';
+import knuLogo from '/KNU.jpg';
 import image2 from '/image 2.png';
 import image5 from '/image 5.png';
 import image6 from '/image 6.png';
@@ -52,7 +52,7 @@ export const ConsortiumSection = () => {
   const duplicatedLogos = [...consortiumLogos, ...consortiumLogos];
 
   return (
-    <section className="mb-21 bg-blue-primary">
+    <section className="bg-[#0052B4] pt-21 pb-15">
       <div className="max-w-screen-2xl mx-auto px-4">
         <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
         <div
