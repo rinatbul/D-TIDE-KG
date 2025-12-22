@@ -54,24 +54,24 @@ export const NewsSection = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-2 select-none">
           <button
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-[rgba(145,158,171,0.3)] text-white transition-colors duration-300 hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           
           <button
             onClick={() => setCurrentPage(1)}
-            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
+            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
           >
             1
           </button>
           
           {currentPage > 3 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-[#919EAB]">...</span>
           )}
           
           {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -80,20 +80,20 @@ export const NewsSection = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
+                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
               >
                 {page}
               </button>
             ))}
           
           {currentPage < totalPages - 2 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
+            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-[#919EAB]">...</span>
           )}
           
           {totalPages > 1 && (
             <button
               onClick={() => setCurrentPage(totalPages)}
-              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
+              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
             >
               {totalPages}
             </button>
@@ -102,7 +102,7 @@ export const NewsSection = () => {
           <button
             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
+            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-[rgba(145,158,171,0.3)] text-white transition-colors duration-300 hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-4 h-4" />
           </button>

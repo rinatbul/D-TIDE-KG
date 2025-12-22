@@ -3,12 +3,12 @@ import euroFlag from '/euroFlag.png';
 
 export const HeroSection = () => {
   return (
-    <section className="relative w-full flex items-center justify-center overflow-hidden">
-      <div className="relative w-full">
+    <section className="relative w-full h-screen max-h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full">
         <img
           src={HeaderImage}
           alt="Hero"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none top-auto bottom-[50vh]">

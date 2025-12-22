@@ -1,4 +1,4 @@
-import knuLogo from '/KNU.png';
+import knuLogo from '/KNU.jpg';
 import image2 from '/image 2.png';
 import image5 from '/image 5.png';
 import image6 from '/image 6.png';
