@@ -6,6 +6,8 @@ import { WorkPackagePartnersSection } from '../components/sections/WorkPackagePa
 import { WorkPackageMaterialsSection } from '../components/sections/WorkPackageMaterialsSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
 import { PageTitle } from '../components/ui/PageTitle';
+import { Divider } from '../components/ui/Divider';
+import { ContentContainer } from '../components/ui/ContentContainer';
 import contentPhoto from '/contentPhoto.png';
 
 const workPackages = {
@@ -44,9 +46,9 @@ export const WorkPackageDetail = () => {
       <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
         <Header />
         <main className="flex-1 pt-50">
-          <div className="container mx-auto px-4">
+          <ContentContainer container="container">
             <h1>Рабочий пакет не найден</h1>
-          </div>
+          </ContentContainer>
         </main>
       </div>
     );
@@ -56,19 +58,19 @@ export const WorkPackageDetail = () => {
     <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
       <Header />
       <main className="flex-1 pt-50">
-        <div className="container mx-auto px-4 mb-6">
+        <ContentContainer container="container" mb>
           <Breadcrumb
             items={[
               { label: 'Рабочие пакеты', path: '/work-packages' },
               { label: workPackage.title }
             ]}
           />
-        </div>
+        </ContentContainer>
 
-        <div className="container mx-auto h-px bg-[#D9D9D9] mb-5"></div>
+        <Divider container="container" />
 
         <section className="mb-21 bg-[#F0F0F0]">
-          <div className="container mx-auto px-4">
+          <ContentContainer container="container">
             <PageTitle>{workPackage.title}</PageTitle>
             <div className="font-onest font-normal text-base leading-none text-black">
               {workPackage.content.split('\n\n').map((paragraph, index) => (
@@ -82,7 +84,7 @@ export const WorkPackageDetail = () => {
                 className="w-full max-w-full h-auto mt-16 mb-16 rounded-lg"
               />
             </div>
-          </div>
+          </ContentContainer>
         </section>
 
         <WorkPackageNewsSection />

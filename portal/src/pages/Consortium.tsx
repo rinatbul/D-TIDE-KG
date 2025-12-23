@@ -3,6 +3,8 @@ import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { ConsortiumPageSection } from '../components/sections/ConsortiumPageSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
 import { PageTitle } from '../components/ui/PageTitle';
+import { Divider } from '../components/ui/Divider';
+import { ContentContainer } from '../components/ui/ContentContainer';
 
 export const Consortium = () => {
   return (
@@ -10,17 +12,17 @@ export const Consortium = () => {
       <Header />
       <main className="flex-1 pt-50">
         <div className="px-[100px]">
-          <div className="max-w-screen-2xl mx-auto px-4 mb-6">
+          <ContentContainer mb>
             <Breadcrumb items={[{ label: 'Консорциум' }]} />
-          </div>
+          </ContentContainer>
 
-          <div className="max-w-screen-2xl mx-auto h-px bg-[#D9D9D9] mb-5"></div>
+          <Divider />
 
           <section className="mb-21">
-            <div className="max-w-screen-2xl mx-auto px-4">
+            <ContentContainer>
               <PageTitle>Консорциум</PageTitle>
               <ConsortiumPageSection />
-            </div>
+            </ContentContainer>
           </section>
         </div>
 

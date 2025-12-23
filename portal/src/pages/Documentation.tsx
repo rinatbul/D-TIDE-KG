@@ -2,6 +2,8 @@ import { Header } from '../components/layout/Header';
 import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { DocumentationSection } from '../components/sections/DocumentationSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { Divider } from '../components/ui/Divider';
+import { ContentContainer } from '../components/ui/ContentContainer';
 
 export const Documentation = () => {
   return (
@@ -9,11 +11,11 @@ export const Documentation = () => {
       <Header />
       <main className="flex-1 pt-50">
         <div className="px-[100px]">
-          <div className="max-w-screen-2xl mx-auto px-4 mb-6">
+          <ContentContainer mb>
             <Breadcrumb items={[{ label: 'Документация' }]} />
-          </div>
+          </ContentContainer>
 
-          <div className="max-w-screen-2xl mx-auto h-px bg-[#D9D9D9] mb-5"></div>
+          <Divider />
 
           <DocumentationSection />
         </div>

@@ -5,6 +5,8 @@ import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
 import { PageTitle } from '../components/ui/PageTitle';
+import { Divider } from '../components/ui/Divider';
+import { ContentContainer } from '../components/ui/ContentContainer';
 
 const mockNewsContent = {
   1: {
@@ -46,19 +48,19 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
       <Header />
       <main className="flex-1 pt-50">
         <div className="px-[100px]">
-          <div className="max-w-screen-2xl mx-auto px-4 mb-6">
+          <ContentContainer mb>
             <Breadcrumb
               items={[
                 { label: 'Новости', path: '/news' },
                 { label: news.title }
               ]}
             />
-          </div>
+          </ContentContainer>
 
-          <div className="max-w-screen-2xl mx-auto h-px bg-[#D9D9D9] mb-5"></div>
+          <Divider />
 
           <section className="mb-21">
-            <div className="max-w-screen-2xl mx-auto px-4">
+            <ContentContainer>
               <PageTitle mb="4">{news.title}</PageTitle>
               
               <p className="font-onest font-normal text-sm leading-none text-gray-text mb-8">
@@ -75,7 +77,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
                   </p>
                 ))}
               </div>
-            </div>
+            </ContentContainer>
           </section>
         </div>
 
