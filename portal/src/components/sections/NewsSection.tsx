@@ -1,15 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import newsImage from '/news.png';
-
-interface NewsItem {
-  id: number;
-  date: string;
-  type: string;
-  title: string;
-  excerpt: string;
-}
+import { NewsCard, type NewsItem } from '../ui/NewsCard';
 
 const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
@@ -24,34 +15,22 @@ export const NewsSection = () => {
   const itemsPerPage = 6;
   const totalPages = Math.ceil(mockNews.length / itemsPerPage);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   return (
     <section className="mb-21 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
-            <div key={news.id} className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]">
-              <img
-                src={newsImage}
-                alt={news.title}
-                className="w-full h-64 object-cover rounded-t-lg"
-              />
-              <div className="p-4">
-                <p className="mb-2">
-                  <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{news.date}</span>
-                  <span className="font-onest text-[10px] text-black"> · </span>
-                  <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
-                </p>
-                <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-blue-primary">{news.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{news.excerpt}</p>
-                <Link
-                  to={`/news/${news.id}`}
-                  className="font-onest font-medium text-xs leading-none text-blue-primary no-underline"
-                >
-                  Подробнее &gt;
-                </Link>
-              </div>
-            </div>
+            <NewsCard
+              key={news.id}
+              news={news}
+              variant="link"
+              dateSeparator=" - "
+            />
           ))}
         </div>
         <div className="flex justify-center items-center gap-2 select-none">

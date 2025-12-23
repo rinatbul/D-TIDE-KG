@@ -7,10 +7,12 @@ import { WorkPackageDetail } from './pages/WorkPackageDetail';
 import { Documentation } from './pages/Documentation';
 import { News } from './pages/News';
 import { NewsDetail } from './pages/NewsDetail';
+import { ScrollToTop } from './components/ScrollToTop';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

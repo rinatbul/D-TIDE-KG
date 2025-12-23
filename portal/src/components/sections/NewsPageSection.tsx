@@ -1,18 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import newsImage from '/news.png';
+import { NewsCard, type NewsItem } from '../ui/NewsCard';
 
-interface NewsItem {
-  id: number;
-  date: string;
-  type: string;
-  title: string;
-  excerpt: string;
+interface NewsItemWithCategory extends NewsItem {
   category: string;
 }
 
-const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => {
+const mockNews: NewsItemWithCategory[] = Array.from({ length: 30 }, (_, i) => {
   const categoryIndex = i % 4;
   const categories = ['Мероприятия', 'Семинар', 'Мероприятия', 'Круглый стол'];
   const types = ['МЕРОПРИЯТИЯ СЕМИНАР', 'СЕМИНАР', 'МЕРОПРИЯТИЯ', 'КРУГЛЫЙ СТОЛ'];
@@ -49,6 +43,10 @@ export const NewsPageSection = () => {
     setCurrentPage(1);
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage, selectedCategory]);
+
   return (
     <div>
       <div className="flex gap-4 mb-10">
@@ -69,26 +67,12 @@ export const NewsPageSection = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {paginatedNews.map((news) => (
-          <Link
+          <NewsCard
             key={news.id}
-            to={`/news/${news.id}`}
-            className="group bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)] block no-underline"
-          >
-            <img
-              src={newsImage}
-              alt={news.title}
-              className="w-full h-64 object-cover rounded-t-lg"
-            />
-            <div className="p-4">
-              <p className="mb-2">
-                <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{news.date}</span>
-                <span className="font-onest text-[10px] text-black"> - </span>
-                <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
-              </p>
-              <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-blue-primary">{news.title}</h3>
-              <p className="text-gray-600 text-sm">{news.excerpt}</p>
-            </div>
-          </Link>
+            news={news}
+            variant="link"
+            dateSeparator=" - "
+          />
         ))}
       </div>
 
