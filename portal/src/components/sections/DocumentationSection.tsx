@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 import pdfIcon from '/PDF.png';
 import downloadIcon from '/Download.png';
+import { Pagination } from '../ui/Pagination';
 
 interface Document {
   id: number;
@@ -29,10 +29,6 @@ export const DocumentationSection = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage]);
 
   return (
     <section className="mb-21">
@@ -67,59 +63,12 @@ export const DocumentationSection = () => {
           ))}
         </div>
 
-        <div className="flex justify-center items-center gap-2">
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          
-          <button
-            onClick={() => setCurrentPage(1)}
-            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-          >
-            1
-          </button>
-          
-          {currentPage > 3 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
-          )}
-          
-          {Array.from({ length: totalPages }, (_, i) => i + 1)
-            .filter(page => page !== 1 && page !== totalPages && Math.abs(page - currentPage) <= 1)
-            .map((page) => (
-              <button
-                key={page}
-                onClick={() => setCurrentPage(page)}
-                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-              >
-                {page}
-              </button>
-            ))}
-          
-          {currentPage < totalPages - 2 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-gray-text">...</span>
-          )}
-          
-          {totalPages > 1 && (
-            <button
-              onClick={() => setCurrentPage(totalPages)}
-              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-green-secondary opacity-30' : 'bg-gray-text opacity-30'} text-black transition-all duration-300 hover:bg-green-secondary`}
-            >
-              {totalPages}
-            </button>
-          )}
-          
-          <button
-            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-            disabled={currentPage === totalPages}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-gray-text text-white opacity-30 transition-colors duration-300 hover:text-blue-primary disabled:opacity-20 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          variant="news"
+        />
       </div>
     </section>
   );

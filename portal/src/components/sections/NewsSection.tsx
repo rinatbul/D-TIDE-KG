@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { Pagination } from '../ui/Pagination';
 
 const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
@@ -14,10 +14,6 @@ export const NewsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const totalPages = Math.ceil(mockNews.length / itemsPerPage);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage]);
 
   return (
     <section className="mb-21 bg-white">
@@ -33,59 +29,12 @@ export const NewsSection = () => {
             />
           ))}
         </div>
-        <div className="flex justify-center items-center gap-2 select-none">
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-[rgba(145,158,171,0.3)] text-white transition-colors duration-300 hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          
-          <button
-            onClick={() => setCurrentPage(1)}
-            className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === 1 ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
-          >
-            1
-          </button>
-          
-          {currentPage > 3 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-[#919EAB]">...</span>
-          )}
-          
-          {Array.from({ length: totalPages }, (_, i) => i + 1)
-            .filter(page => page !== 1 && page !== totalPages && Math.abs(page - currentPage) <= 1)
-            .map((page) => (
-              <button
-                key={page}
-                onClick={() => setCurrentPage(page)}
-                className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === page ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
-              >
-                {page}
-              </button>
-            ))}
-          
-          {currentPage < totalPages - 2 && totalPages > 4 && (
-            <span className="w-8 h-8 flex items-center justify-center font-onest font-medium text-sm text-[#919EAB]">...</span>
-          )}
-          
-          {totalPages > 1 && (
-            <button
-              onClick={() => setCurrentPage(totalPages)}
-              className={`w-8 h-8 flex items-center justify-center rounded-[3px] font-onest font-medium text-sm ${currentPage === totalPages ? 'bg-[rgba(9,141,34,0.3)]' : 'bg-[rgba(145,158,171,0.3)]'} text-black transition-all duration-300 hover:bg-opacity-80`}
-            >
-              {totalPages}
-            </button>
-          )}
-          
-          <button
-            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-            disabled={currentPage === totalPages}
-            className="w-8 h-8 flex items-center justify-center rounded-[3px] bg-[rgba(145,158,171,0.3)] text-white transition-colors duration-300 hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          variant="news"
+        />
       </div>
     </section>
   );
