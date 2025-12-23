@@ -6,15 +6,40 @@ import russiaFlag from '/russia.png';
 import usFlag from '/united states.png';
 import kyrgyzstanFlag from '/kyrgyzstan.png';
 
+const workPackages = [
+  {
+    id: 1,
+    title: 'WP1: Управление проектом',
+    link: '/work-packages/wp1'
+  },
+  {
+    id: 2,
+    title: 'WP2: Концептуализация и разработка PhD-платформы',
+    link: '/work-packages/wp2'
+  },
+  {
+    id: 3,
+    title: 'WP3: Пилотирование цифровой среды PhD-программ',
+    link: '/work-packages/wp3'
+  },
+  {
+    id: 4,
+    title: 'WP4: Распространение результатов и интеграция в политику',
+    link: '/work-packages/wp4'
+  }
+];
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isWorkPackagesOpen, setIsWorkPackagesOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('Русский');
   const [isScrolled, setIsScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const workPackagesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -25,6 +50,7 @@ export const Header = () => {
       setTimeout(() => searchInputRef.current?.focus(), 100);
     }
   };
+  const toggleWorkPackages = () => setIsWorkPackagesOpen(!isWorkPackagesOpen);
 
   const getCurrentFlag = () => {
     if (currentLang === 'Русский') return russiaFlag;
@@ -45,6 +71,9 @@ export const Header = () => {
       }
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false);
+      }
+      if (workPackagesRef.current && !workPackagesRef.current.contains(event.target as Node)) {
+        setIsWorkPackagesOpen(false);
       }
     };
 
@@ -83,9 +112,37 @@ export const Header = () => {
             <Link to="/consortium" className={getNavClass('/consortium')}>
               КОНСОРЦИУМ
             </Link>
-            <Link to="/work-packages" className={getNavClass('/work-packages')}>
-              РАБОЧИЕ ПАКЕТЫ
-            </Link>
+            <div className="relative" ref={workPackagesRef}>
+              <button
+                onClick={toggleWorkPackages}
+                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
+              >
+                РАБОЧИЕ ПАКЕТЫ
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isWorkPackagesOpen && (
+                <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[300px] z-50">
+                  <Link
+                    to="/work-packages"
+                    onClick={() => setIsWorkPackagesOpen(false)}
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-onest font-medium text-sm"
+                  >
+                    Все рабочие пакеты
+                  </Link>
+                  <div className="border-t border-gray-200 my-1"></div>
+                  {workPackages.map((wp) => (
+                    <Link
+                      key={wp.id}
+                      to={wp.link}
+                      onClick={() => setIsWorkPackagesOpen(false)}
+                      className={`block px-4 py-2 hover:bg-gray-100 font-onest font-normal text-sm ${location.pathname === wp.link ? 'text-[#0072C6] bg-gray-50' : 'text-gray-700'}`}
+                    >
+                      {wp.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link to="/documentation" className={getNavClass('/documentation')}>
               ДОКУМЕНТАЦИЯ
             </Link>
@@ -191,9 +248,42 @@ export const Header = () => {
             <Link to="/consortium" onClick={() => setIsMenuOpen(false)} className={getNavClass('/consortium')}>
               КОНСОРЦИУМ
             </Link>
-            <Link to="/work-packages" onClick={() => setIsMenuOpen(false)} className={getNavClass('/work-packages')}>
-              РАБОЧИЕ ПАКЕТЫ
-            </Link>
+            <div className="flex flex-col">
+              <button
+                onClick={() => setIsWorkPackagesOpen(!isWorkPackagesOpen)}
+                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center justify-between ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
+              >
+                РАБОЧИЕ ПАКЕТЫ
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isWorkPackagesOpen && (
+                <div className="mt-2 ml-4 flex flex-col gap-2">
+                  <Link
+                    to="/work-packages"
+                    onClick={() => {
+                      setIsWorkPackagesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                    className="font-onest font-medium text-sm text-gray-700 hover:text-[#0072C6]"
+                  >
+                    Все рабочие пакеты
+                  </Link>
+                  {workPackages.map((wp) => (
+                    <Link
+                      key={wp.id}
+                      to={wp.link}
+                      onClick={() => {
+                        setIsWorkPackagesOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`font-onest font-normal text-sm ${location.pathname === wp.link ? 'text-[#0072C6]' : 'text-gray-700 hover:text-[#0072C6]'}`}
+                    >
+                      {wp.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link to="/documentation" onClick={() => setIsMenuOpen(false)} className={getNavClass('/documentation')}>
               ДОКУМЕНТАЦИЯ
             </Link>
