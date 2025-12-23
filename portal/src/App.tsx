@@ -6,6 +6,7 @@ import { WorkPackages } from './pages/WorkPackages';
 import { WorkPackageDetail } from './pages/WorkPackageDetail';
 import { Documentation } from './pages/Documentation';
 import { News } from './pages/News';
+import { NewsDetail } from './pages/NewsDetail';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/work-packages/:id" element={<WorkPackageDetail />} />
         <Route path="/documentation" element={<Documentation />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<NewsDetail />} />
       </Routes>
     </BrowserRouter>
   );
