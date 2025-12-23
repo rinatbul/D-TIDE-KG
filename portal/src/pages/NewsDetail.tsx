@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { PageLayout } from '../components/layout/PageLayout';
 import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
-import { ContentContainer } from '../components/ui/ContentContainer';
 
 const mockNewsContent = {
   1: {

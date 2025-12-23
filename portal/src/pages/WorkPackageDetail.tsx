@@ -3,7 +3,6 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { WorkPackageNewsSection } from '../components/sections/WorkPackageNewsSection';
 import { WorkPackagePartnersSection } from '../components/sections/WorkPackagePartnersSection';
 import { WorkPackageMaterialsSection } from '../components/sections/WorkPackageMaterialsSection';
-import { ContentContainer } from '../components/ui/ContentContainer';
 import contentPhoto from '/contentPhoto.png';
 
 const workPackages = {
