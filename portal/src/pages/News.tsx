@@ -2,6 +2,7 @@ import { Header } from '../components/layout/Header';
 import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { NewsPageSection } from '../components/sections/NewsPageSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { PageTitle } from '../components/ui/PageTitle';
 
 export const News = () => {
   return (
@@ -17,7 +18,7 @@ export const News = () => {
 
           <section className="mb-21">
             <div className="max-w-screen-2xl mx-auto px-4">
-              <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">Новости</h1>
+              <PageTitle>Новости</PageTitle>
               <NewsPageSection />
             </div>
           </section>

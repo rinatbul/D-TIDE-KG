@@ -2,6 +2,7 @@ import { Header } from '../components/layout/Header';
 import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { ConsortiumPageSection } from '../components/sections/ConsortiumPageSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { PageTitle } from '../components/ui/PageTitle';
 
 export const Consortium = () => {
   return (
@@ -17,7 +18,7 @@ export const Consortium = () => {
 
           <section className="mb-21">
             <div className="max-w-screen-2xl mx-auto px-4">
-              <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">Консорциум</h1>
+              <PageTitle>Консорциум</PageTitle>
               <ConsortiumPageSection />
             </div>
           </section>

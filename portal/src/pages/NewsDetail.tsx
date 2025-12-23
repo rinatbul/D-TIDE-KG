@@ -4,6 +4,7 @@ import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { PageTitle } from '../components/ui/PageTitle';
 
 const mockNewsContent = {
   1: {
@@ -58,7 +59,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 
           <section className="mb-21">
             <div className="max-w-screen-2xl mx-auto px-4">
-              <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-4">{news.title}</h1>
+              <PageTitle mb="4">{news.title}</PageTitle>
               
               <p className="font-onest font-normal text-sm leading-none text-gray-text mb-8">
                 <span>{news.date}</span>

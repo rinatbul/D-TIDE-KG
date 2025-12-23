@@ -5,6 +5,7 @@ import { WorkPackageNewsSection } from '../components/sections/WorkPackageNewsSe
 import { WorkPackagePartnersSection } from '../components/sections/WorkPackagePartnersSection';
 import { WorkPackageMaterialsSection } from '../components/sections/WorkPackageMaterialsSection';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { PageTitle } from '../components/ui/PageTitle';
 import contentPhoto from '/contentPhoto.png';
 
 const workPackages = {
@@ -68,7 +69,7 @@ export const WorkPackageDetail = () => {
 
         <section className="mb-21 bg-[#F0F0F0]">
           <div className="container mx-auto px-4">
-            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">{workPackage.title}</h1>
+            <PageTitle>{workPackage.title}</PageTitle>
             <div className="font-onest font-normal text-base leading-none text-black">
               {workPackage.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-6">

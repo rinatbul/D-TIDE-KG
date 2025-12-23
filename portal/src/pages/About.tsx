@@ -1,6 +1,7 @@
 import { Header } from '../components/layout/Header';
 import { Breadcrumb } from '../components/layout/Breadcrumb';
 import { ErasmusSection } from '../components/sections/ErasmusSection';
+import { PageTitle } from '../components/ui/PageTitle';
 import projectGoalsIcon from '/projectGoals.png';
 import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
@@ -53,7 +54,7 @@ export const About = () => {
 
           <section className="mb-21">
             <div className="max-w-screen-2xl mx-auto px-4">
-            <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">О проекте</h1>
+            <PageTitle>О проекте</PageTitle>
 
             <div className="space-y-8">
               <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#1EB53A]">

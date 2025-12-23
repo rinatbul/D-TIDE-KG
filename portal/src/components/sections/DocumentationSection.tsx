@@ -2,6 +2,7 @@ import { useState } from 'react';
 import pdfIcon from '/PDF.png';
 import downloadIcon from '/Download.png';
 import { Pagination } from '../ui/Pagination';
+import { PageTitle } from '../ui/PageTitle';
 
 interface Document {
   id: number;
@@ -33,7 +34,7 @@ export const DocumentationSection = () => {
   return (
     <section className="mb-21">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">Документация</h1>
+        <PageTitle>Документация</PageTitle>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[6.125rem] gap-y-7 mb-8">
           {paginatedDocuments.map((doc) => (
