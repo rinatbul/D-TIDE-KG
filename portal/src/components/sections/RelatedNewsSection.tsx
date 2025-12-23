@@ -27,9 +27,9 @@ const relatedNews: NewsItem[] = [
 
 export const RelatedNewsSection = () => {
   return (
-    <section className="mb-21">
+    <section className="mb-21 mt-10">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <h2 className="font-onest font-bold text-[32px] leading-none text-left text-black mb-10">СМОТРИТЕ ТАКЖЕ</h2>
+        <h2 className="font-onest font-medium text-[20px] leading-none uppercase text-left text-black mb-10">СМОТРИТЕ ТАКЖЕ</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {relatedNews.map((news) => (

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { PageLayout } from '../components/layout/PageLayout';
 import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
+import { Divider } from '../components/ui/Divider';
 
 const mockNewsContent = {
   1: {
@@ -47,9 +48,10 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
       title={news.title}
       titleMb="4"
       additionalContent={
-        <div className="px-[100px]">
+        <>
+          <Divider />
           <RelatedNewsSection />
-          </div>
+        </>
       }
     >
               <p className="font-onest font-normal text-sm leading-none text-gray-text mb-8">

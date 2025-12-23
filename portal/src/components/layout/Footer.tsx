@@ -9,7 +9,7 @@ export const Footer = () => {
 
   const getLinkClass = (path: string) => {
     const isActive = location.pathname === path;
-    return `font-onest font-medium text-base leading-none uppercase text-black no-underline transition-all duration-300 hover:text-blue-secondary ${isActive ? 'font-bold text-blue-secondary' : ''}`;
+    return `font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 ${isActive ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`;
   };
 
   return (
