@@ -1,12 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { Header } from '../components/layout/Header';
-import { Breadcrumb } from '../components/layout/Breadcrumb';
+import { PageLayout } from '../components/layout/PageLayout';
 import { WorkPackageNewsSection } from '../components/sections/WorkPackageNewsSection';
 import { WorkPackagePartnersSection } from '../components/sections/WorkPackagePartnersSection';
 import { WorkPackageMaterialsSection } from '../components/sections/WorkPackageMaterialsSection';
-import { ErasmusSection } from '../components/sections/ErasmusSection';
-import { PageTitle } from '../components/ui/PageTitle';
-import { Divider } from '../components/ui/Divider';
 import { ContentContainer } from '../components/ui/ContentContainer';
 import contentPhoto from '/contentPhoto.png';
 
@@ -43,35 +39,30 @@ export const WorkPackageDetail = () => {
 
   if (!workPackage) {
     return (
-      <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
-        <Header />
-        <main className="flex-1 pt-50">
-          <ContentContainer container="container">
+      <PageLayout usePadding={false} container="container">
             <h1>Рабочий пакет не найден</h1>
-          </ContentContainer>
-        </main>
-      </div>
+      </PageLayout>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
-      <Header />
-      <main className="flex-1 pt-50">
-        <ContentContainer container="container" mb>
-          <Breadcrumb
-            items={[
+    <PageLayout
+      breadcrumbItems={[
               { label: 'Рабочие пакеты', path: '/work-packages' },
               { label: workPackage.title }
             ]}
-          />
-        </ContentContainer>
-
-        <Divider container="container" />
-
-        <section className="mb-21 bg-[#F0F0F0]">
-          <ContentContainer container="container">
-            <PageTitle>{workPackage.title}</PageTitle>
+      title={workPackage.title}
+      container="container"
+      usePadding={false}
+      sectionClassName="mb-21 bg-[#F0F0F0]"
+      additionalContent={
+        <>
+          <WorkPackageNewsSection />
+          <WorkPackagePartnersSection />
+          <WorkPackageMaterialsSection />
+        </>
+      }
+    >
             <div className="font-onest font-normal text-base leading-none text-black">
               {workPackage.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-6">
@@ -84,15 +75,7 @@ export const WorkPackageDetail = () => {
                 className="w-full max-w-full h-auto mt-16 mb-16 rounded-lg"
               />
             </div>
-          </ContentContainer>
-        </section>
-
-        <WorkPackageNewsSection />
-        <WorkPackagePartnersSection />
-        <WorkPackageMaterialsSection />
-        <ErasmusSection />
-      </main>
-    </div>
+    </PageLayout>
   );
 };
 

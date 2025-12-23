@@ -1,9 +1,4 @@
-import { Header } from '../components/layout/Header';
-import { Breadcrumb } from '../components/layout/Breadcrumb';
-import { ErasmusSection } from '../components/sections/ErasmusSection';
-import { PageTitle } from '../components/ui/PageTitle';
-import { Divider } from '../components/ui/Divider';
-import { ContentContainer } from '../components/ui/ContentContainer';
+import { PageLayout } from '../components/layout/PageLayout';
 import projectGoalsIcon from '/projectGoals.png';
 import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
@@ -44,20 +39,10 @@ export const About = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
-      <Header />
-      <main className="flex-1 pt-50">
-        <div className="px-[100px]">
-          <ContentContainer mb>
-            <Breadcrumb items={[{ label: 'О проекте' }]} />
-          </ContentContainer>
-
-          <Divider />
-
-          <section className="mb-21">
-            <ContentContainer>
-            <PageTitle>О проекте</PageTitle>
-
+    <PageLayout
+      breadcrumbItems={[{ label: 'О проекте' }]}
+      title="О проекте"
+    >
             <div className="space-y-8">
               <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#1EB53A]">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
@@ -117,13 +102,7 @@ export const About = () => {
                 </div>
               </div>
             </div>
-          </ContentContainer>
-        </section>
-        </div>
-
-        <ErasmusSection />
-      </main>
-    </div>
+    </PageLayout>
   );
 };
 

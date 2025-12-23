@@ -1,11 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Header } from '../components/layout/Header';
-import { Breadcrumb } from '../components/layout/Breadcrumb';
+import { PageLayout } from '../components/layout/PageLayout';
 import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
-import { ErasmusSection } from '../components/sections/ErasmusSection';
-import { PageTitle } from '../components/ui/PageTitle';
-import { Divider } from '../components/ui/Divider';
 import { ContentContainer } from '../components/ui/ContentContainer';
 
 const mockNewsContent = {
@@ -44,25 +40,19 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
       };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
-      <Header />
-      <main className="flex-1 pt-50">
-        <div className="px-[100px]">
-          <ContentContainer mb>
-            <Breadcrumb
-              items={[
+    <PageLayout
+      breadcrumbItems={[
                 { label: 'Новости', path: '/news' },
                 { label: news.title }
               ]}
-            />
-          </ContentContainer>
-
-          <Divider />
-
-          <section className="mb-21">
-            <ContentContainer>
-              <PageTitle mb="4">{news.title}</PageTitle>
-              
+      title={news.title}
+      titleMb="4"
+      additionalContent={
+        <div className="px-[100px]">
+          <RelatedNewsSection />
+          </div>
+      }
+    >
               <p className="font-onest font-normal text-sm leading-none text-gray-text mb-8">
                 <span>{news.date}</span>
                 <span className="mx-2">{news.type}</span>
@@ -77,17 +67,7 @@ Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
                   </p>
                 ))}
               </div>
-            </ContentContainer>
-          </section>
-        </div>
-
-        <div className="px-[100px]">
-          <RelatedNewsSection />
-        </div>
-
-        <ErasmusSection />
-      </main>
-    </div>
+    </PageLayout>
   );
 };
 
