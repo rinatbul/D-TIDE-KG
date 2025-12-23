@@ -6,7 +6,7 @@ import image6 from '/image 6.png';
 import image8 from '/image 8.png';
 import image17 from '/image 17.png';
 import engIHSM from '/Eng_IHSM.png';
-import logoMNVOiI from '/Logo_МНВОиИ 1.png';
+import logoMNVOiI from '/Logo_МНВОиИ.png';
 
 const consortiumLogos = [
   { id: 1, src: knuLogo, alt: 'KNU' },
