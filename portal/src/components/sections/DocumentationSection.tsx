@@ -37,7 +37,7 @@ export const DocumentationSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[6.125rem] gap-y-7 mb-8">
           {paginatedDocuments.map((doc) => (
-            <div key={doc.id} className="bg-white border border-gray-text rounded-[10px] py-[15px] px-5 transition-shadow duration-300 hover:shadow-[0px_4px_12px_rgba(0,0,0,0.1)]">
+            <div key={doc.id} className="bg-white border border-gray-text rounded-[10px] py-[15px] px-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <div className="shrink-0">

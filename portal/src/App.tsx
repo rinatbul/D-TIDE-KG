@@ -5,6 +5,7 @@ import { Consortium } from './pages/Consortium';
 import { WorkPackages } from './pages/WorkPackages';
 import { WorkPackageDetail } from './pages/WorkPackageDetail';
 import { Documentation } from './pages/Documentation';
+import { News } from './pages/News';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/work-packages" element={<WorkPackages />} />
         <Route path="/work-packages/:id" element={<WorkPackageDetail />} />
         <Route path="/documentation" element={<Documentation />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </BrowserRouter>
   );

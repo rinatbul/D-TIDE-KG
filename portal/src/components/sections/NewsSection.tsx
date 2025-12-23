@@ -30,7 +30,7 @@ export const NewsSection = () => {
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
-            <div key={news.id} className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-shadow duration-300 hover:shadow-[3px_3px_10px_0px_rgba(0,0,0,0.2)]">
+            <div key={news.id} className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]">
               <img
                 src={newsImage}
                 alt={news.title}
