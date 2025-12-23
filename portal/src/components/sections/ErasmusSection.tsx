@@ -29,7 +29,7 @@ export const ErasmusSection = () => {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-[20px] left-0 right-0 z-10">
+      <div className="absolute bottom-[20px] left-[80px] right-[80px] z-10">
         <Footer />
       </div>
     </section>

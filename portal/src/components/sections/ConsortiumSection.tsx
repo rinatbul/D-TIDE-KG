@@ -5,7 +5,7 @@ import image5 from '/image 5.png';
 import image6 from '/image 6.png';
 import image8 from '/image 8.png';
 import image17 from '/image 17.png';
-import engIHSM from '/Eng_IHSM 1.png';
+import engIHSM from '/Eng_IHSM.png';
 import logoMNVOiI from '/Logo_МНВОиИ 1.png';
 
 const consortiumLogos = [

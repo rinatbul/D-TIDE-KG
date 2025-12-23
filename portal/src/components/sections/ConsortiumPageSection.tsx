@@ -1,5 +1,4 @@
 import knuLogo from '/KNU.jpg';
-import image2 from '/image 2.png';
 import image5 from '/image 5.png';
 import image6 from '/image 6.png';
 import image8 from '/image 8.png';
@@ -7,9 +6,10 @@ import image9 from '/image 9.png';
 import image10 from '/image 10.png';
 import image17 from '/image 17.png';
 import image18 from '/image 18.png';
-import engIHSM from '/Eng_IHSM 1.png';
-import logoMNVOiI from '/Logo_МНВОиИ 1.png';
+import engIHSM from '/Eng_IHSM.png';
+import logoMNVOiI from '/Logo_МНВОиИ.png';
 import mukrLogo from '/МУКР лого.png';
+import oshSU from '/OshSU.svg';
 
 const consortiumMembers = [
   {
@@ -50,7 +50,7 @@ const consortiumMembers = [
   },
   {
     id: 7,
-    src: image2,
+    src: oshSU,
     alt: 'Ошский государственный университет',
     name: 'Ошский государственный университет'
   },
@@ -92,9 +92,9 @@ export const ConsortiumPageSection = () => {
       {consortiumMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-white rounded-lg p-6 flex flex-col items-center justify-center gap-4 w-full max-w-[341px] h-[334px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_25.1px_0px_rgba(0,0,0,0.25)]"
+            className={`bg-white rounded-lg p-6 flex flex-col items-center justify-center gap-4 w-full max-w-[341px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_25.1px_0px_rgba(0,0,0,0.25)] ${member.id === 1 || member.id === 2 || member.id === 3 || member.id === 4 || member.id === 5 || member.id === 6 || member.id === 7 || member.id === 8 || member.id === 9 || member.id === 10 || member.id === 11 || member.id === 12 ? 'h-[384px]' : 'h-[334px]'}`}
           >
-            <div className="flex items-center justify-center h-[100px] w-full mb-2">
+            <div className={`flex items-center justify-center w-full mb-2 ${member.id === 1 || member.id === 2 || member.id === 3 || member.id === 4 || member.id === 5 || member.id === 6 || member.id === 7 || member.id === 8 || member.id === 9 || member.id === 10 || member.id === 11 || member.id === 12 ? 'h-[180px]' : 'h-[100px]'}`}>
               <img
                 src={member.src}
                 alt={member.alt}

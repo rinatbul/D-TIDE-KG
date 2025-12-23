@@ -44,14 +44,15 @@ export const About = () => {
     <div className="min-h-screen flex flex-col bg-[#F0F0F0]">
       <Header />
       <main className="flex-1 pt-50">
-        <div className="container mx-auto px-4 mb-6">
-          <Breadcrumb items={[{ label: 'О проекте' }]} />
-        </div>
+        <div className="px-[100px]">
+          <div className="max-w-screen-2xl mx-auto px-4 mb-6">
+            <Breadcrumb items={[{ label: 'О проекте' }]} />
+          </div>
 
-        <div className="container mx-auto h-px bg-[#D9D9D9] mb-5"></div>
+          <div className="max-w-screen-2xl mx-auto h-px bg-[#D9D9D9] mb-5"></div>
 
-        <section className="mb-21">
-          <div className="container mx-auto px-4">
+          <section className="mb-21">
+            <div className="max-w-screen-2xl mx-auto px-4">
             <h1 className="font-onest font-bold text-[40px] leading-none text-left text-black mb-10">О проекте</h1>
 
             <div className="space-y-8">
@@ -115,6 +116,7 @@ export const About = () => {
             </div>
           </div>
         </section>
+        </div>
 
         <ErasmusSection />
       </main>

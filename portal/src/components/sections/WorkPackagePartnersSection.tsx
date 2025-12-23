@@ -1,8 +1,8 @@
-import knuLogo from '/KNU.png';
+import knuLogo from '/KNU.jpg';
 import image6 from '/image 6.png';
 import image8 from '/image 8.png';
-import logoMNVOiI from '/Logo_МНВОиИ 1.png';
-import engIHSM from '/Eng_IHSM 1.png';
+import logoMNVOiI from '/Logo_МНВОиИ.png';
+import engIHSM from '/Eng_IHSM.png';
 
 const partners = [
   { id: 1, src: logoMNVOiI, alt: 'Министерство науки, высшего образования и инноваций КР' },
