@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
 import { Dashboard } from './pages/Dashboard';
+import { HeroSection } from './pages/HeroSection';
 import { About } from './pages/About';
 import { Consortium } from './pages/Consortium';
 import { WorkPackages } from './pages/WorkPackages';
@@ -18,6 +19,7 @@ const App = () => {
           <main className="flex-1 p-6 overflow-y-auto">
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/hero-section" element={<HeroSection />} />
               <Route path="/about" element={<About />} />
               <Route path="/consortium" element={<Consortium />} />
               <Route path="/work-packages" element={<WorkPackages />} />

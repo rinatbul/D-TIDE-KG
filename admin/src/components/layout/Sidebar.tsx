@@ -5,6 +5,7 @@ import {
   FolderKanban, 
   BookOpen, 
   Newspaper,
+  Image,
   LogOut
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -18,6 +19,7 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/' },
+  { id: 'hero-section', label: 'Главный баннер', icon: Image, path: '/hero-section' },
   { id: 'about', label: 'О проекте', icon: Info, path: '/about' },
   { id: 'consortium', label: 'Консорциум', icon: Users, path: '/consortium' },
   { id: 'work-packages', label: 'Рабочие пакеты', icon: FolderKanban, path: '/work-packages' },
