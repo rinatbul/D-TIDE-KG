@@ -23,7 +23,6 @@ export const NewsCard = ({
   variant = 'link',
   showReadMore = false,
   readMoreColor = 'blue',
-  dateSeparator = ' - ',
   hoverEffect = 'translate',
 }: NewsCardProps) => {
   const baseClasses = 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 block no-underline';
