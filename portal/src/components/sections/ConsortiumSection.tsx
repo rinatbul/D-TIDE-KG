@@ -55,9 +55,10 @@ export const ConsortiumSection = () => {
     <section className="bg-[#0052B4] pt-21 pb-15">
       <div className="max-w-screen-2xl mx-auto px-4">
         <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
+      </div>
         <div
           ref={scrollRef}
-          className="flex gap-8 overflow-x-hidden overflow-y-visible py-6"
+        className="flex gap-8 overflow-x-hidden overflow-y-visible py-6 px-4"
           onMouseEnter={() => { isPausedRef.current = true; }}
           onMouseLeave={() => { isPausedRef.current = false; }}
         >
@@ -73,7 +74,6 @@ export const ConsortiumSection = () => {
               />
             </div>
           ))}
-        </div>
       </div>
     </section>
   );

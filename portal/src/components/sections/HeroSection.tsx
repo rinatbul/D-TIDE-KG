@@ -11,7 +11,7 @@ export const HeroSection = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none top-auto bottom-[50vh]">
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none top-auto bottom-[35vh]">
         <div className="text-center px-4">
           <h1 className="font-onest font-bold text-[70px] leading-none text-center text-white mb-4">D-TIDE-KG</h1>
           <p className="font-onest font-semibold text-[45px] leading-[130%] text-center capitalize text-white">
@@ -20,7 +20,7 @@ export const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-[15vh] right-[9vw] z-10 w-[379px] h-[117px] bg-white rounded-[4px] p-0 flex items-center pointer-events-auto">
+      <div className="absolute bottom-[8vh] right-[9vw] z-10 w-[379px] h-[117px] bg-white rounded-[4px] p-0 flex items-center pointer-events-auto">
         <div className="flex items-center justify-center h-full p-2 shrink-0">
             <img src={euroFlag} alt="EU Flag" className="h-full w-auto" />
           </div>

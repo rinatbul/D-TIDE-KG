@@ -67,6 +67,8 @@ export const NewsPageSection = () => {
             key={news.id}
             news={news}
             variant="link"
+            showReadMore={true}
+            readMoreColor="blue"
             dateSeparator=" - "
           />
         ))}

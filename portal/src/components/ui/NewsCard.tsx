@@ -33,7 +33,7 @@ export const NewsCard = ({
     : 'hover:shadow-[3px_3px_10px_0px_rgba(0,0,0,0.2)]';
 
   const readMoreColorClass = readMoreColor === 'blue' 
-    ? 'text-blue-primary' 
+    ? 'text-[#0052B4]' 
     : 'text-green-primary';
 
   const cardContent = (

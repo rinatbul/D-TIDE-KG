@@ -17,7 +17,7 @@ export const NewsSection = () => {
 
   return (
     <section className="mb-21 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">НОВОСТИ</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
@@ -25,6 +25,8 @@ export const NewsSection = () => {
               key={news.id}
               news={news}
               variant="link"
+              showReadMore={true}
+              readMoreColor="blue"
               dateSeparator=" - "
             />
           ))}
