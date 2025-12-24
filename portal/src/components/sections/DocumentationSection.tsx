@@ -48,10 +48,10 @@ export const DocumentationSection = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3 flex-wrap">
-                    <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{doc.date}</span>
-                    <span className="w-0.5 h-0.5 bg-gray-text rounded-full flex-shrink-0"></span>
+                    <span className="font-onest font-normal text-[10px] leading-none text-[#D80027]">{doc.date}</span>
+                    <span className="w-0.5 h-0.5 bg-[#919EAB] rounded-full flex-shrink-0 opacity-100"></span>
                     <span className="font-onest font-medium text-[10px] leading-none text-center uppercase text-black">{doc.format}</span>
-                    <span className="w-0.5 h-0.5 bg-gray-text rounded-full flex-shrink-0"></span>
+                    <span className="w-0.5 h-0.5 bg-[#919EAB] rounded-full flex-shrink-0 opacity-100"></span>
                     <span className="font-onest font-medium text-[10px] leading-none text-center uppercase text-black">{doc.size}</span>
                   </div>
                   <button className="flex flex-row items-center gap-1 bg-none border-none cursor-pointer transition-opacity duration-300 hover:opacity-70 p-1 shrink-0">

@@ -39,7 +39,7 @@ export const AboutSection = () => {
   return (
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
       <div className="container mx-auto px-8">
-        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-blue-primary mb-12">О ПРОЕКТЕ</h2>
+        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">О ПРОЕКТЕ</h2>
         <div className="flex flex-col md:flex-row gap-16 justify-center">
           <div className="bg-white rounded-lg shadow-[-7px_0px_4px_0px_#0072C6] w-[45vw] min-w-[500px] p-8">
             <div className="flex items-center gap-4 mb-6">

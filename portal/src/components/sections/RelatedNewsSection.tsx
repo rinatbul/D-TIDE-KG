@@ -38,7 +38,7 @@ export const RelatedNewsSection = () => {
               news={news}
               variant="link"
               showReadMore={true}
-              readMoreColor="green"
+              readMoreColor="blue"
               dateSeparator=" - "
             />
           ))}

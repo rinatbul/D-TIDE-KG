@@ -44,12 +44,12 @@ export const NewsCard = ({
         className="w-full h-64 object-cover rounded-t-lg"
       />
       <div className="p-4">
-        <p className="mb-2">
-          <span className="font-onest font-normal text-[10px] leading-none text-red-primary">{news.date}</span>
-          <span className="font-onest text-[10px] text-black">{dateSeparator}</span>
+        <p className="mb-2 flex items-center gap-1.5">
+          <span className="font-onest font-normal text-[10px] leading-none text-[#D80027]">{news.date}</span>
+          <span className="w-0.5 h-0.5 rounded-full bg-[#919EAB] opacity-100"></span>
           <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
         </p>
-        <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-blue-primary">{news.title}</h3>
+        <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-[#0052B4]">{news.title}</h3>
         <p className={`text-gray-600 text-sm ${showReadMore ? 'mb-4' : ''}`}>{news.excerpt}</p>
         {showReadMore && (
           variant === 'link' ? (
