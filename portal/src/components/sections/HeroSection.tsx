@@ -1,13 +1,25 @@
-import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import euroFlag from '/euroFlag.png';
 import HeaderImage from '/HeaderImage.png';
 import { api, type HeroSectionData } from '../../lib/api';
 
 export const HeroSection = () => {
+  const queryClient = useQueryClient();
+  
   const { data, isLoading } = useQuery<HeroSectionData>({
     queryKey: ['heroSection'],
     queryFn: () => api.get<HeroSectionData>('/api/hero-section'),
+    staleTime: 0,
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      queryClient.invalidateQueries({ queryKey: ['heroSection'] });
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [queryClient]);
 
   if (isLoading) {
     return (

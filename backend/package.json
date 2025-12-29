@@ -8,7 +8,8 @@
     "local": "vercel dev"
   },
   "dependencies": {
-    "@vercel/node": "^3.0.0"
+    "@vercel/node": "^3.0.0",
+    "@vercel/kv": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
