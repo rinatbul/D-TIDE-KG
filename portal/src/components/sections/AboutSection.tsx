@@ -1,6 +1,7 @@
 import projectGoalsIcon from '/projectGoals.png';
 import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
+import contentPhoto from '/Контент фото.png';
 
 export const AboutSection = () => {
   const projectTasks = [
@@ -40,41 +41,47 @@ export const AboutSection = () => {
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
       <div className="container mx-auto px-24">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">О ПРОЕКТЕ</h2>
-        <div className="flex flex-col md:flex-row gap-16 justify-center">
-          <div className="bg-white rounded-lg shadow-[-7px_0px_4px_0px_#0072C6] w-[45vw] min-w-[500px] p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative" style={{ width: '37px', height: '37px' }}>
-                <img src={rectangleIcon} alt="" className="absolute inset-0 w-full h-full" />
-                <img src={goalIcon} alt="Задачи" className="absolute inset-0 w-full h-full p-1" />
+        <div className="flex flex-col gap-16 justify-center">
+          <div className="flex flex-row gap-8 items-stretch">
+            <div className="bg-[#F0F0F0] rounded-lg p-8 flex-1">
+              <div className="flex items-center gap-4 mb-6">
+                <img src={projectGoalsIcon} alt="Цели проекта" style={{ width: '37px', height: '37px' }} />
+                <h3 className="font-onest font-bold text-xl leading-none text-black">Цель проекта</h3>
               </div>
-              <h3 className="font-onest font-bold text-xl leading-none text-black">Задачи проекта</h3>
+              <ol className="space-y-3">
+                {projectGoals.map((goal, index) => (
+                  <li key={index} className="flex gap-3 items-baseline">
+                    <span className="font-onest font-normal text-base leading-none text-black shrink-0">{index + 1}.</span>
+                    <span className="font-onest font-normal text-base leading-none text-black">{goal}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <ol className="space-y-4">
-              {projectTasks.map((task, index) => (
-                <li key={index} className="flex gap-3 items-baseline">
-                  <span className="font-nunito font-bold text-base leading-none text-blue-600 shrink-0">{index + 1}.</span>
-                  <div>
-                    <span className="font-nunito font-bold text-base leading-none text-black block">{task.title}</span>
-                    <p className="font-onest font-normal text-base leading-none text-black mt-1">{task.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <img src={contentPhoto} alt="" className="h-full w-auto object-contain" />
           </div>
 
-          <div className="bg-white rounded-lg shadow-[-7px_0px_4px_0px_#1EB53A] w-[45vw] min-w-[500px] p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <img src={projectGoalsIcon} alt="Цели проекта" style={{ width: '37px', height: '37px' }} />
-              <h3 className="font-onest font-bold text-xl leading-none text-black">Цель проекта</h3>
+          <div className="flex flex-row gap-8 items-stretch">
+            <img src={contentPhoto} alt="" className="h-full w-auto object-contain" />
+            <div className="bg-[#F0F0F0] rounded-lg p-8 flex-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative" style={{ width: '37px', height: '37px' }}>
+                  <img src={rectangleIcon} alt="" className="absolute inset-0 w-full h-full" />
+                  <img src={goalIcon} alt="Задачи" className="absolute inset-0 w-full h-full p-1" />
+                </div>
+                <h3 className="font-onest font-bold text-xl leading-none text-black">Задачи проекта</h3>
+              </div>
+              <ol className="space-y-4">
+                {projectTasks.map((task, index) => (
+                  <li key={index} className="flex gap-3 items-baseline">
+                    <span className="font-nunito font-bold text-base leading-none text-blue-600 shrink-0">{index + 1}.</span>
+                    <div>
+                      <span className="font-nunito font-bold text-base leading-none text-black block">{task.title}</span>
+                      <p className="font-onest font-normal text-base leading-none text-black mt-1">{task.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <ol className="space-y-3">
-              {projectGoals.map((goal, index) => (
-                <li key={index} className="flex gap-3 items-baseline">
-                  <span className="font-onest font-normal text-base leading-none text-black shrink-0">{index + 1}.</span>
-                  <span className="font-onest font-normal text-base leading-none text-black">{goal}</span>
-                </li>
-              ))}
-            </ol>
           </div>
         </div>
       </div>

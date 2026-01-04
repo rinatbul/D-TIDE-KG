@@ -1,41 +1,29 @@
 import { PageLayout } from '../components/layout/PageLayout';
 import projectGoalsIcon from '/projectGoals.png';
-import rectangleIcon from '/Rectangle.png';
-import goalIcon from '/Goal.png';
 import HeaderImage from '/HeaderImage.png';
 
 export const About = () => {
-  const projectTasks = [
-    {
-      title: 'Цифровая трансформация PhD-образования:',
-      description: 'Разработка ИТ-платформы и цифровых PhD-куррикулумов.'
-    },
-    {
-      title: 'Гармонизация программ:',
-      description: 'Адаптация к стандартам EHEA и Болонского процесса, повышение международной сопоставимости.'
-    },
-    {
-      title: 'Развитие человеческого потенциала:',
-      description: 'Обучение 100 сотрудников — академического и административного состава.'
-    },
-    {
-      title: 'Содействие партнёрству:',
-      description: 'Укрепление международного сотрудничества между европейскими и кыргызскими университетами.'
-    },
-    {
-      title: 'Укрепление управленческих механизмов:',
-      description: 'Интеграция цифровых PhD-подходов в национальные документы, улучшение нормативной базы.'
-    },
-  ];
-
   const projectGoals = [
-    'Обеспечение справедливого и качественного докторского образования с применением цифровых технологий по всей территории Кыргызской Республики.',
-    'Трансформацию PhD-образования через цифровизацию программ, повышение доступности и снижение региональных дисбалансов.',
-    'Расширение возможностей регионов, включая малообслуживаемые территории.',
-    'Гармонизацию докторских программ со стандартами Европейского пространства высшего образования (EHEA) и Болонского процесса.',
-    'Развитие кадрового потенциала вузов и научных организаций.',
-    'Укрепление партнёрства Кыргызстан–Европа, продвижение совместных инициатив и обмена знаниями.',
-    'Интеграцию цифровых PhD-подходов в государственную политику.',
+    {
+      title: 'Цифровизация программ PhD с ориентацией на качество',
+      description: 'Разработка и пилотирование цифровых докторских программ на IT-платформе для расширения доступа к образованию в малообслуживаемых регионах.'
+    },
+    {
+      title: 'Согласование с международными стандартами',
+      description: 'Гармонизация докторских программ с принципами EHEA и Болонского процесса для повышения их международной узнаваемости.'
+    },
+    {
+      title: 'Наращивание потенциала',
+      description: 'Обучение академического и административного персонала цифровым компетенциям и управлению образовательными программами для повышения качества докторского образования.'
+    },
+    {
+      title: 'Сотрудничество и совместное использование ресурсов',
+      description: 'Развитие партнёрства между университетами Кыргызстана и университетами ЕС для оптимизации ресурсов и обмена знаниями.'
+    },
+    {
+      title: 'Развитие управления и политики',
+      description: 'Укрепление управленческих механизмов и интеграция цифрового докторского образования в национальные стратегии под руководством Министерства науки, высшего образования и инновации Кыргызской Республики.'
+    },
   ];
 
   return (
@@ -43,19 +31,25 @@ export const About = () => {
       breadcrumbItems={[{ label: 'О проекте' }]}
       title="О проекте"
     >
+            <p className="text-left mb-8 font-onest font-normal text-base leading-relaxed text-black">
+              Проект Erasmus+ «Цифровая трансформация для инклюзивного докторского образования в Кыргызстане» (D-TIDE-KG) направлен на решение актуальной задачи обеспечения справедливого и высококачественного докторского образования за счёт использования потенциала цифровых технологий. Проект опирается на результаты предыдущих инициатив и сосредоточен на цифровизации программ PhD, расширении инклюзивности за счёт вовлечения удалённых регионов, а также на внедрении системных изменений в управление высшим образованием в Кыргызской Республике.
+              При активном участии Министерства науки, высшего образования и инновации Кыргызской Республики (МНВОиИ КР) проект нацелен на приведение докторского образования в соответствие со стандартами Европейского пространства высшего образования (EHEA) и обеспечение устойчивого долгосрочного эффекта.
+            </p>
             <div className="space-y-8">
               <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#1EB53A]">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-6">
-                      <img src={projectGoalsIcon} alt="Цели проекта" style={{ width: '37px', height: '37px' }} />
-                      <h2 className="font-onest font-bold text-xl leading-none text-black">Цель проекта</h2>
+                      <img src={projectGoalsIcon} alt="Ключевые цели проекта" style={{ width: '37px', height: '37px' }} />
+                      <h2 className="font-onest font-bold text-xl leading-none text-black">Ключевые цели проекта</h2>
                     </div>
                     <ol className="space-y-3">
                       {projectGoals.map((goal, index) => (
                         <li key={index} className="flex gap-3 items-baseline">
                           <span className="font-onest font-normal text-base leading-none text-black shrink-0">{index + 1}.</span>
-                          <span className="font-onest font-normal text-base leading-none text-black">{goal}</span>
+                          <span className="font-onest font-normal text-base leading-none text-black">
+                            <span className="font-onest font-bold">{goal.title}</span> — {goal.description}
+                          </span>
                         </li>
                       ))}
                     </ol>
@@ -69,39 +63,16 @@ export const About = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="bg-white rounded-lg p-8 shadow-[-7px_0px_4px_0px_#0072C6]">
-                <div className="flex flex-col lg:flex-row items-center gap-8">
-                  <div className="shrink-0">
-                    <img
-                      src={HeaderImage}
-                      alt="Задачи проекта"
-                      className="w-full max-w-[500px] h-auto rounded-lg object-cover"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="relative" style={{ width: '37px', height: '37px' }}>
-                        <img src={rectangleIcon} alt="" className="absolute inset-0 w-full h-full" />
-                        <img src={goalIcon} alt="Задачи" className="absolute inset-0 w-full h-full p-1" />
-                      </div>
-                      <h2 className="font-onest font-bold text-xl leading-none text-black">Задачи проекта</h2>
-                    </div>
-                    <ol className="space-y-4">
-                      {projectTasks.map((task, index) => (
-                        <li key={index} className="flex gap-3 items-baseline">
-                          <span className="font-nunito font-bold text-base leading-none text-blue-600 shrink-0">{index + 1}.</span>
-                          <div>
-                            <span className="font-nunito font-bold text-base leading-none text-black block">{task.title}</span>
-                            <p className="font-onest font-normal text-base leading-none text-black mt-1">{task.description}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-              </div>
             </div>
+            <p className="text-left mt-8 font-onest font-normal text-base leading-relaxed text-black">
+              Проект структурирован в виде четырёх рабочих пакетов (WP), охватывающих управление проектом, концептуализацию и разработку платформы PhD, пилотирование цифровой среды докторских программ с учебными элементами и жизненным циклом докторанта, распространение результатов и интеграцию в политику. Каждый рабочий пакет ориентирован на устойчивость, инклюзивность через межрегиональную интеграцию и экологически ответственную реализацию проекта, включая использование энергоэффективной IT-инфраструктуры и снижение углеродного следа за счёт виртуальных встреч и гибридных мероприятий.
+            </p>
+            <p className="text-left mt-4 font-onest font-normal text-base leading-relaxed text-black">
+              Ожидаемые результаты проекта включают разработку IT-платформы на основе анализа потребностей, внедрение 10 цифровых программ PhD, обучение 100 сотрудников и зачисление 100 докторантов в пилотные докторские программы. Кроме того, проект предусматривает пересмотр трёх национальных нормативно-политических документов и разработку плана устойчивого развития для обеспечения долгосрочного эффекта.
+            </p>
+            <p className="text-left mt-4 font-onest font-normal text-base leading-relaxed text-black">
+              Трансформация докторского образования в Кыргызстане позволит сократить региональные диспропорции, повысить уровень инклюзивности и укрепить потенциал страны по подготовке исследователей, конкурентоспособных на международном уровне. Активное участие Министерства науки, высшего образования и инновации Кыргызской Республики гарантирует интеграцию результатов проекта в систему высшего образования Кыргызской Республики в соответствии с национальными приоритетами и приоритетами программы Erasmus+.
+            </p>
     </PageLayout>
   );
 };
