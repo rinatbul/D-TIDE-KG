@@ -38,7 +38,7 @@ export const WorkPackageDetail = () => {
 
   if (!workPackage) {
     return (
-      <PageLayout usePadding={false} container="container">
+      <PageLayout>
             <h1>Рабочий пакет не найден</h1>
       </PageLayout>
     );
@@ -51,8 +51,6 @@ export const WorkPackageDetail = () => {
               { label: workPackage.title }
             ]}
       title={workPackage.title}
-      container="container"
-      usePadding={false}
       sectionClassName="mb-21 bg-[#F0F0F0]"
       additionalContent={
         <>

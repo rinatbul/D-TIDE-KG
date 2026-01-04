@@ -80,7 +80,7 @@ export const NewsCard = ({
   }
 
   return (
-    <div className={`${baseClasses} ${hoverClasses}`}>
+    <div className={`group ${baseClasses} ${hoverClasses}`}>
       {cardContent}
     </div>
   );

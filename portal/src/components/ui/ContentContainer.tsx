@@ -11,7 +11,7 @@ export const ContentContainer = ({
 }: ContentContainerProps) => {
   const containerClass = container === 'container' 
     ? 'container mx-auto px-24' 
-    : 'max-w-screen-2xl mx-auto px-4';
+    : 'max-w-screen-2xl mx-auto px-6';
   
   const mbClass = mb ? 'mb-6' : '';
 
