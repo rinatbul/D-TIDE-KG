@@ -1,5 +1,6 @@
 import { Search, FolderPlus, Plus } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import logo from '/logo.png';
 
 const getAddButtonText = (pathname: string): string => {
   const routeMap: Record<string, string> = {
@@ -21,10 +22,8 @@ export const Header = () => {
     <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-sm">ESG</span>
-          </div>
-          <span className="text-black font-semibold text-lg">ESG CA</span>
+          <img src={logo} alt="D-TIDE-KG" className="h-10 w-auto" />
+          <span className="text-black font-semibold text-lg">D-TIDE-KG</span>
         </div>
       </div>
       <div className="flex items-center gap-4">

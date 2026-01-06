@@ -42,7 +42,7 @@ export const Sidebar = () => {
               to={item.path}
               className={`flex items-center gap-3 px-4 py-3 mx-2 rounded cursor-pointer transition-colors ${
                 isActive
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#0072C6] text-white'
                   : 'text-black hover:bg-gray-100'
               }`}
             >
@@ -53,7 +53,7 @@ export const Sidebar = () => {
         })}
       </nav>
       <div className="p-4 mt-auto">
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded cursor-pointer transition-colors bg-red-600 text-white hover:bg-red-700">
+        <button className="w-full flex items-center gap-3 px-4 py-3 rounded cursor-pointer transition-colors border-2 border-red-800 text-red-800 hover:bg-red-800 hover:border-red-800 hover:text-white">
           <LogOut className="w-5 h-5" />
           <span className="text-sm">Logout</span>
         </button>
