@@ -97,7 +97,7 @@ export const Header = () => {
     <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
       <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center px-[80px]'}`}>
         <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'w-full max-w-screen-2xl'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] ${isScrolled ? 'h-16' : 'h-[80px]'} pointer-events-auto transition-all duration-300`}>
-          <div className={`${isScrolled ? 'container mx-auto px-28' : 'max-w-screen-2xl mx-auto px-8'} flex items-center justify-between h-full`}>
+          <div className={`${isScrolled ? 'container mx-auto px-6' : 'max-w-screen-2xl mx-auto px-8'} flex items-center justify-between h-full`}>
             <div className="flex items-center gap-3">
               <img src={logo} alt="D-TIDE-KG" className={`${isScrolled ? 'h-8' : 'h-12'} w-auto transition-all duration-300`} />
             </div>
@@ -237,7 +237,7 @@ export const Header = () => {
       {isMenuOpen && (
         <div className={`lg:hidden w-full ${isScrolled ? 'flex' : 'flex justify-center px-[80px]'}`}>
           <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'w-full max-w-screen-2xl'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] h-auto border-t border-gray-200`}>
-            <div className={`${isScrolled ? 'container mx-auto px-24' : 'px-4'}`}>
+            <div className={`${isScrolled ? 'container mx-auto px-6' : 'px-4'}`}>
               <nav className="py-4 flex flex-col gap-4">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
               ГЛАВНАЯ
