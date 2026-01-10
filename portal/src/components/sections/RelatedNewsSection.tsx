@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { NewsCard } from '../ui/NewsCard';
 import { CardGrid } from '../ui/CardGrid';
 import { ContentContainer } from '../ui/ContentContainer';
+import { ViewMoreButton } from '../ui/ViewMoreButton';
 import { relatedNews } from '../../mocks/news';
 
 export const RelatedNewsSection = () => {
@@ -23,14 +23,7 @@ export const RelatedNewsSection = () => {
           ))}
         </CardGrid>
 
-        <div className="flex justify-center">
-          <Link
-            to="/news"
-            className="px-8 py-3 border border-blue-secondary text-blue-secondary rounded font-onest font-medium text-base leading-none transition-all duration-300 hover:border-[#0052B4] hover:text-[#0052B4] no-underline"
-          >
-            Больше новостей
-          </Link>
-        </div>
+        <ViewMoreButton to="/news" variant="outline-thick" />
       </ContentContainer>
     </section>
   );
