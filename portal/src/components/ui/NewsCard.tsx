@@ -25,7 +25,9 @@ export const NewsCard = ({
   readMoreColor = 'blue',
   hoverEffect = 'translate',
 }: NewsCardProps) => {
-  const baseClasses = 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 block no-underline';
+  const baseClasses = variant === 'link' 
+    ? 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 block no-underline'
+    : 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300';
   
   const hoverClasses = hoverEffect === 'translate' 
     ? 'hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]'

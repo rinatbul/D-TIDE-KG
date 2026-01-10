@@ -1,17 +1,10 @@
 import { useState } from 'react';
-import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { NewsCard } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CardGrid } from '../ui/CardGrid';
 import { ContentContainer } from '../ui/ContentContainer';
-
-const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
-  id: i + 1,
-  date: `${10 + (i % 20)}.${(i % 12) + 1}.2025`,
-  type: i % 2 === 0 ? 'МЕРОПРИЯТИЯ' : 'СЕМИНАР',
-  title: `Заголовок новости ${i + 1}`,
-  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis',
-}));
+import { mockNews } from '../../mocks/news';
 
 export const NewsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);

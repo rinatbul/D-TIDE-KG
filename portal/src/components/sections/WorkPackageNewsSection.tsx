@@ -1,32 +1,9 @@
 import { Link } from 'react-router-dom';
-import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { NewsCard } from '../ui/NewsCard';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CardGrid } from '../ui/CardGrid';
 import { ContentContainer } from '../ui/ContentContainer';
-
-const newsItems: NewsItem[] = [
-  {
-    id: 1,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ • СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis'
-  },
-  {
-    id: 2,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ • СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis'
-  },
-  {
-    id: 3,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ • СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis'
-  }
-];
+import { workPackageNews } from '../../mocks/news';
 
 export const WorkPackageNewsSection = () => {
   return (
@@ -34,7 +11,7 @@ export const WorkPackageNewsSection = () => {
       <ContentContainer variant="screen-2xl-px4">
         <SectionTitle variant="black">НОВОСТИ:</SectionTitle>
         <CardGrid>
-          {newsItems.map((news) => (
+          {workPackageNews.map((news) => (
             <NewsCard
               key={news.id}
               news={news}
@@ -42,7 +19,7 @@ export const WorkPackageNewsSection = () => {
               showReadMore={true}
               readMoreColor="blue"
               dateSeparator=" · "
-              hoverEffect="shadow"
+              hoverEffect="translate"
             />
           ))}
         </CardGrid>

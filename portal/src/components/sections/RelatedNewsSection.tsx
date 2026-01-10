@@ -1,31 +1,8 @@
 import { Link } from 'react-router-dom';
-import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { NewsCard } from '../ui/NewsCard';
 import { CardGrid } from '../ui/CardGrid';
 import { ContentContainer } from '../ui/ContentContainer';
-
-const relatedNews: NewsItem[] = [
-  {
-    id: 1,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  },
-  {
-    id: 2,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  },
-  {
-    id: 3,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  }
-];
+import { relatedNews } from '../../mocks/news';
 
 export const RelatedNewsSection = () => {
   return (

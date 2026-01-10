@@ -1,25 +1,7 @@
 import { useEffect, useRef } from 'react';
-import knuLogo from '/KNU.jpg';
-import image2 from '/image 2.png';
-import image5 from '/image 5.png';
-import image6 from '/image 6.png';
-import image8 from '/image 8.png';
-import image17 from '/image 17.png';
-import engIHSM from '/Eng_IHSM.png';
-import logoMNVOiI from '/Logo_МНВОиИ.png';
 import { SectionTitle } from '../ui/SectionTitle';
 import { ContentContainer } from '../ui/ContentContainer';
-
-const consortiumLogos = [
-  { id: 1, src: knuLogo, alt: 'KNU' },
-  { id: 2, src: image2, alt: 'Partner 2' },
-  { id: 3, src: image5, alt: 'Partner 3' },
-  { id: 4, src: image6, alt: 'Partner 4' },
-  { id: 5, src: image8, alt: 'Partner 5' },
-  { id: 6, src: image17, alt: 'Partner 6' },
-  { id: 7, src: engIHSM, alt: 'Eng IHSM' },
-  { id: 8, src: logoMNVOiI, alt: 'МНВОиИ' },
-];
+import { consortiumLogos } from '../../mocks/consortium';
 
 export const ConsortiumSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);

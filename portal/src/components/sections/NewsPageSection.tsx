@@ -1,28 +1,8 @@
 import { useState } from 'react';
-import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { NewsCard } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
 import { CardGrid } from '../ui/CardGrid';
-
-interface NewsItemWithCategory extends NewsItem {
-  category: string;
-}
-
-const mockNews: NewsItemWithCategory[] = Array.from({ length: 30 }, (_, i) => {
-  const categoryIndex = i % 4;
-  const categories = ['Мероприятия', 'Семинар', 'Мероприятия', 'Круглый стол'];
-  const types = ['МЕРОПРИЯТИЯ СЕМИНАР', 'СЕМИНАР', 'МЕРОПРИЯТИЯ', 'КРУГЛЫЙ СТОЛ'];
-  
-  return {
-    id: i + 1,
-    date: `10.10.2025`,
-    type: types[categoryIndex],
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...',
-    category: categories[categoryIndex],
-  };
-});
-
-const categories = ['Все', 'Мероприятия', 'Семинар', 'Круглый стол'];
+import { mockNewsWithCategory, newsCategories } from '../../mocks/news';
 
 export const NewsPageSection = () => {
   const [selectedCategory, setSelectedCategory] = useState('Все');
@@ -30,8 +10,8 @@ export const NewsPageSection = () => {
   const itemsPerPage = 9;
   
   const filteredNews = selectedCategory === 'Все' 
-    ? mockNews 
-    : mockNews.filter(news => news.category === selectedCategory);
+    ? mockNewsWithCategory 
+    : mockNewsWithCategory.filter(news => news.category === selectedCategory);
   
   const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
   const paginatedNews = filteredNews.slice(
@@ -47,7 +27,7 @@ export const NewsPageSection = () => {
   return (
     <div>
       <div className="flex gap-4 mb-10">
-        {categories.map((category) => (
+        {newsCategories.map((category) => (
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}

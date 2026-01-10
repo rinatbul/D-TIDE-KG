@@ -5,29 +5,7 @@ import logo from '/logo.png';
 import russiaFlag from '/russia.png';
 import usFlag from '/united states.png';
 import kyrgyzstanFlag from '/kyrgyzstan.png';
-
-const workPackages = [
-  {
-    id: 1,
-    title: 'WP1: Управление проектом',
-    link: '/work-packages/wp1'
-  },
-  {
-    id: 2,
-    title: 'WP2: Концептуализация и разработка PhD-платформы',
-    link: '/work-packages/wp2'
-  },
-  {
-    id: 3,
-    title: 'WP3: Пилотирование цифровой среды PhD-программ',
-    link: '/work-packages/wp3'
-  },
-  {
-    id: 4,
-    title: 'WP4: Распространение результатов и интеграция в политику',
-    link: '/work-packages/wp4'
-  }
-];
+import { workPackagesMenu } from '../../mocks/workPackages';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -130,7 +108,7 @@ export const Header = () => {
                     Все рабочие пакеты
                   </Link>
                   <div className="border-t border-gray-200 my-1"></div>
-                  {workPackages.map((wp) => (
+                  {workPackagesMenu.map((wp) => (
                     <Link
                       key={wp.id}
                       to={wp.link}
@@ -268,7 +246,7 @@ export const Header = () => {
                   >
                     Все рабочие пакеты
                   </Link>
-                  {workPackages.map((wp) => (
+                  {workPackagesMenu.map((wp) => (
                     <Link
                       key={wp.id}
                       to={wp.link}
