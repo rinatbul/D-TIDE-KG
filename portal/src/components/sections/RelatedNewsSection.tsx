@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
 import { CardGrid } from '../ui/CardGrid';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const relatedNews: NewsItem[] = [
   {
@@ -29,7 +30,7 @@ const relatedNews: NewsItem[] = [
 export const RelatedNewsSection = () => {
   return (
     <section className="mb-21 mt-10">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <h2 className="font-onest font-medium text-[20px] leading-none uppercase text-left text-black mb-10">СМОТРИТЕ ТАКЖЕ</h2>
         
         <CardGrid>
@@ -53,7 +54,7 @@ export const RelatedNewsSection = () => {
             Больше новостей
           </Link>
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 };

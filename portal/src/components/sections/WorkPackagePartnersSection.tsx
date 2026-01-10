@@ -4,6 +4,7 @@ import image8 from '/image 8.png';
 import logoMNVOiI from '/Logo_МНВОиИ.png';
 import engIHSM from '/Eng_IHSM.png';
 import { SectionTitle } from '../ui/SectionTitle';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const partners = [
   { id: 1, src: logoMNVOiI, alt: 'Министерство науки, высшего образования и инноваций КР' },
@@ -16,7 +17,7 @@ const partners = [
 export const WorkPackagePartnersSection = () => {
   return (
     <section className="mb-21 bg-[#0052B4] py-12">
-      <div className="container mx-auto px-4">
+      <ContentContainer variant="container-px4">
         <SectionTitle variant="white">ОТВЕТСТВЕННЫЕ ПАРТНЕРЫ:</SectionTitle>
         <div className="flex flex-wrap justify-center gap-6">
           {partners.map((partner) => (
@@ -29,7 +30,7 @@ export const WorkPackagePartnersSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 };

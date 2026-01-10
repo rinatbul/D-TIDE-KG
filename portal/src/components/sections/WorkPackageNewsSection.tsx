@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CardGrid } from '../ui/CardGrid';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const newsItems: NewsItem[] = [
   {
@@ -30,7 +31,7 @@ const newsItems: NewsItem[] = [
 export const WorkPackageNewsSection = () => {
   return (
     <section className="mb-21 bg-[#F0F0F0]">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <SectionTitle variant="black">НОВОСТИ:</SectionTitle>
         <CardGrid>
           {newsItems.map((news) => (
@@ -50,7 +51,7 @@ export const WorkPackageNewsSection = () => {
             Больше новостей
           </Link>
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 };

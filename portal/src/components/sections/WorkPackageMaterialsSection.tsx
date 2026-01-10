@@ -3,6 +3,7 @@ import { MaterialCard, type MaterialItem } from '../ui/MaterialCard';
 import { Pagination } from '../ui/Pagination';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CardGrid } from '../ui/CardGrid';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const formats = ['PDF', 'DOC', 'PPT'];
 const sizes = ['2MB', '1.5MB', '3MB', '2.5MB'];
@@ -28,7 +29,7 @@ export const WorkPackageMaterialsSection = () => {
 
   return (
     <section className="mb-21 bg-[#F0F0F0]">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <SectionTitle variant="black">МАТЕРИАЛЫ:</SectionTitle>
         
         <CardGrid>
@@ -43,7 +44,7 @@ export const WorkPackageMaterialsSection = () => {
           onPageChange={setCurrentPage}
           variant="news"
         />
-      </div>
+      </ContentContainer>
     </section>
   );
 };

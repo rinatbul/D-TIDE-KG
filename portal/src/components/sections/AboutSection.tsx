@@ -3,6 +3,7 @@ import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
 import contentPhoto from '/Контент фото.png';
 import { SectionTitle } from '../ui/SectionTitle';
+import { ContentContainer } from '../ui/ContentContainer';
 
 export const AboutSection = () => {
   const projectTasks = [
@@ -40,7 +41,7 @@ export const AboutSection = () => {
 
   return (
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
-      <div className="container mx-auto px-30">
+      <ContentContainer variant="container-px30">
         <SectionTitle variant="blue">О ПРОЕКТЕ</SectionTitle>
         <div className="flex flex-col gap-16 justify-center">
           <div className="flex flex-row gap-8 items-stretch">
@@ -85,7 +86,7 @@ export const AboutSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 };

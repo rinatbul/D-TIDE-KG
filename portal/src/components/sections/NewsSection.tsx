@@ -3,6 +3,7 @@ import { NewsCard, type NewsItem } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CardGrid } from '../ui/CardGrid';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
@@ -19,7 +20,7 @@ export const NewsSection = () => {
 
   return (
     <section className="mb-21 bg-white">
-      <div className="container mx-auto px-30">
+      <ContentContainer variant="container-px30">
         <SectionTitle variant="blue">НОВОСТИ</SectionTitle>
         <CardGrid>
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
@@ -39,7 +40,7 @@ export const NewsSection = () => {
           onPageChange={setCurrentPage}
           variant="news"
         />
-      </div>
+      </ContentContainer>
     </section>
   );
 };

@@ -8,6 +8,7 @@ import image17 from '/image 17.png';
 import engIHSM from '/Eng_IHSM.png';
 import logoMNVOiI from '/Logo_МНВОиИ.png';
 import { SectionTitle } from '../ui/SectionTitle';
+import { ContentContainer } from '../ui/ContentContainer';
 
 const consortiumLogos = [
   { id: 1, src: knuLogo, alt: 'KNU' },
@@ -54,9 +55,9 @@ export const ConsortiumSection = () => {
 
   return (
     <section className="bg-[#0052B4] pt-21 pb-15">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <SectionTitle variant="white">КОНСОРЦИУМ</SectionTitle>
-      </div>
+      </ContentContainer>
         <div
           ref={scrollRef}
         className="flex gap-8 overflow-x-hidden overflow-y-visible py-6 px-4"
