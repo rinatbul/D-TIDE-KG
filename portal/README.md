@@ -1,73 +1,120 @@
-# React + TypeScript + Vite
+# D-TIDE-KG Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-портал проекта Erasmus+ "Цифровая трансформация для инклюзивного докторского образования в Кыргызстане" (D-TIDE-KG).
 
-Currently, two official plugins are available:
+## О проекте
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Портал предоставляет информацию о проекте D-TIDE-KG, направленном на решение актуальной задачи обеспечения справедливого и высококачественного докторского образования за счёт использования потенциала цифровых технологий. Проект опирается на результаты предыдущих инициатив и сосредоточен на цифровизации программ PhD, расширении инклюзивности за счёт вовлечения удалённых регионов, а также на внедрении системных изменений в управление высшим образованием в Кыргызской Республике.
 
-## React Compiler
+## Возможности
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🏠 Главная страница с информацией о проекте
+- 📰 Новостная лента с детальным просмотром статей
+- 👥 Информация о консорциуме проекта
+- 📦 Рабочие пакеты (Work Packages) с подробной информацией
+- 📚 Документация проекта
+- 🎓 Информация о программах PhD
 
-## Expanding the ESLint configuration
+## Технологический стек
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** - UI библиотека
+- **TypeScript** - типизация
+- **Vite** - сборщик и dev-сервер
+- **React Router** - маршрутизация
+- **TanStack React Query** - управление серверным состоянием
+- **Tailwind CSS** - стилизация
+- **Lucide React** - иконки
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Требования
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js версии 18 или выше
+- npm или yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Установка
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Запуск
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Режим разработки
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Приложение будет доступно по адресу `http://localhost:5173`
+
+### Сборка для продакшена
+
+```bash
+npm run build
+```
+
+Собранные файлы будут находиться в директории `dist`
+
+### Предпросмотр продакшен-сборки
+
+```bash
+npm run preview
+```
+
+### Линтинг
+
+```bash
+npm run lint
+```
+
+## Переменные окружения
+
+Создайте файл `.env` в корне проекта:
+
+```env
+VITE_API_URL=http://localhost:3001
+```
+
+## Структура проекта
+
+```
+portal/
+├── public/                 # Статические файлы
+├── src/
+│   ├── components/        # React компоненты
+│   │   ├── layout/       # Компоненты макета (Header, Footer, PageLayout)
+│   │   ├── sections/     # Секции страниц
+│   │   └── ui/           # Переиспользуемые UI компоненты
+│   ├── pages/            # Страницы приложения
+│   ├── lib/              # Утилиты и API клиент
+│   ├── mocks/            # Мокированные данные
+│   ├── App.tsx           # Главный компонент приложения
+│   └── main.tsx          # Точка входа
+├── index.html            # HTML шаблон
+├── vite.config.ts        # Конфигурация Vite
+├── tailwind.config.js    # Конфигурация Tailwind CSS
+└── tsconfig.json         # Конфигурация TypeScript
+```
+
+## Страницы
+
+- `/` - Главная страница
+- `/about` - О проекте
+- `/consortium` - Консорциум
+- `/work-packages` - Рабочие пакеты
+- `/work-packages/:id` - Детальная информация о рабочем пакете
+- `/documentation` - Документация
+- `/news` - Новости
+- `/news/:id` - Детальная информация о новости
+
+## Особенности реализации
+
+- Все GET запросы используют `useQuery` из `@tanstack/react-query`
+- Все POST/MUTATION запросы используют `useMutation` из `@tanstack/react-query`
+- Таблицы реализованы с использованием `useReactTable` из `@tanstack/react-table`
+- Использование arrow functions для компонентов
+- Стилизация с помощью Tailwind CSS
+- Адаптивный дизайн
+
+## Лицензия
+
+Проект создан в рамках программы Erasmus+.
