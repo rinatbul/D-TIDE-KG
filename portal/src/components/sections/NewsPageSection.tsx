@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
+import { CardGrid } from '../ui/CardGrid';
 
 interface NewsItemWithCategory extends NewsItem {
   category: string;
@@ -61,7 +62,7 @@ export const NewsPageSection = () => {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <CardGrid>
         {paginatedNews.map((news) => (
           <NewsCard
             key={news.id}
@@ -72,7 +73,7 @@ export const NewsPageSection = () => {
             dateSeparator=" - "
           />
         ))}
-      </div>
+      </CardGrid>
 
       <Pagination
         currentPage={currentPage}

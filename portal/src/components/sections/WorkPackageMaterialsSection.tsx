@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { MaterialCard, type MaterialItem } from '../ui/MaterialCard';
 import { Pagination } from '../ui/Pagination';
+import { SectionTitle } from '../ui/SectionTitle';
+import { CardGrid } from '../ui/CardGrid';
 
 const formats = ['PDF', 'DOC', 'PPT'];
 const sizes = ['2MB', '1.5MB', '3MB', '2.5MB'];
@@ -27,13 +29,13 @@ export const WorkPackageMaterialsSection = () => {
   return (
     <section className="mb-21 bg-[#F0F0F0]">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">МАТЕРИАЛЫ:</h2>
+        <SectionTitle variant="black">МАТЕРИАЛЫ:</SectionTitle>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <CardGrid>
           {paginatedMaterials.map((material) => (
             <MaterialCard key={material.id} material={material} />
           ))}
-        </div>
+        </CardGrid>
 
         <Pagination
           currentPage={currentPage}

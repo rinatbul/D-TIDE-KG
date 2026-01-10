@@ -3,6 +3,7 @@ import image6 from '/image 6.png';
 import image8 from '/image 8.png';
 import logoMNVOiI from '/Logo_МНВОиИ.png';
 import engIHSM from '/Eng_IHSM.png';
+import { SectionTitle } from '../ui/SectionTitle';
 
 const partners = [
   { id: 1, src: logoMNVOiI, alt: 'Министерство науки, высшего образования и инноваций КР' },
@@ -16,7 +17,7 @@ export const WorkPackagePartnersSection = () => {
   return (
     <section className="mb-21 bg-[#0052B4] py-12">
       <div className="container mx-auto px-4">
-        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-white mb-12">ОТВЕТСТВЕННЫЕ ПАРТНЕРЫ:</h2>
+        <SectionTitle variant="white">ОТВЕТСТВЕННЫЕ ПАРТНЕРЫ:</SectionTitle>
         <div className="flex flex-wrap justify-center gap-6">
           {partners.map((partner) => (
             <div key={partner.id} className="bg-white rounded-[10px] p-6 flex items-center justify-center h-[140px] w-[140px] transition-all duration-300 hover:scale-105 hover:shadow-[0px_0px_10.9px_3px_rgba(255,255,255,0.7)]">

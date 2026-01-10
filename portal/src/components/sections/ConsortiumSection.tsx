@@ -7,6 +7,7 @@ import image8 from '/image 8.png';
 import image17 from '/image 17.png';
 import engIHSM from '/Eng_IHSM.png';
 import logoMNVOiI from '/Logo_МНВОиИ.png';
+import { SectionTitle } from '../ui/SectionTitle';
 
 const consortiumLogos = [
   { id: 1, src: knuLogo, alt: 'KNU' },
@@ -54,7 +55,7 @@ export const ConsortiumSection = () => {
   return (
     <section className="bg-[#0052B4] pt-21 pb-15">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
+        <SectionTitle variant="white">КОНСОРЦИУМ</SectionTitle>
       </div>
         <div
           ref={scrollRef}

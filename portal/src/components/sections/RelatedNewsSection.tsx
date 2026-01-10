@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
+import { CardGrid } from '../ui/CardGrid';
 
 const relatedNews: NewsItem[] = [
   {
@@ -31,7 +32,7 @@ export const RelatedNewsSection = () => {
       <div className="max-w-screen-2xl mx-auto px-4">
         <h2 className="font-onest font-medium text-[20px] leading-none uppercase text-left text-black mb-10">СМОТРИТЕ ТАКЖЕ</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <CardGrid>
           {relatedNews.map((news) => (
             <NewsCard
               key={news.id}
@@ -42,7 +43,7 @@ export const RelatedNewsSection = () => {
               dateSeparator=" - "
             />
           ))}
-        </div>
+        </CardGrid>
 
         <div className="flex justify-center">
           <Link

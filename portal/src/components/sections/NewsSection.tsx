@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { NewsCard, type NewsItem } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
+import { SectionTitle } from '../ui/SectionTitle';
+import { CardGrid } from '../ui/CardGrid';
 
 const mockNews: NewsItem[] = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
@@ -18,8 +20,8 @@ export const NewsSection = () => {
   return (
     <section className="mb-21 bg-white">
       <div className="container mx-auto px-30">
-        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">НОВОСТИ</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <SectionTitle variant="blue">НОВОСТИ</SectionTitle>
+        <CardGrid>
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
             <NewsCard
               key={news.id}
@@ -30,7 +32,7 @@ export const NewsSection = () => {
               dateSeparator=" - "
             />
           ))}
-        </div>
+        </CardGrid>
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
