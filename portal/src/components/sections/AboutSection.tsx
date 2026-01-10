@@ -39,7 +39,7 @@ export const AboutSection = () => {
 
   return (
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-30">
         <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">О ПРОЕКТЕ</h2>
         <div className="flex flex-col gap-16 justify-center">
           <div className="flex flex-row gap-8 items-stretch">
