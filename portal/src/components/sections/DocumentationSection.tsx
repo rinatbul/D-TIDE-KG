@@ -4,7 +4,7 @@ import downloadIcon from '/Download.png';
 import { Pagination } from '../ui/Pagination';
 import { PageTitle } from '../ui/PageTitle';
 import { ContentContainer } from '../ui/ContentContainer';
-import { mockDocuments, type Document } from '../../mocks/documents';
+import { mockDocuments } from '../../mocks/documents';
 
 export const DocumentationSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
