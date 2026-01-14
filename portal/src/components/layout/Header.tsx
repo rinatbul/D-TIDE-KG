@@ -73,12 +73,12 @@ export const Header = () => {
 
   return (
     <header className={`fixed z-50 w-full ${isScrolled ? 'top-0' : 'top-[5vh]'} pointer-events-none transition-top duration-300`}>
-      <div className={`w-full flex ${isScrolled ? '' : 'justify-center px-[5vw]'} max-w-[100vw]`}>
+      <div className={`w-full ${isScrolled ? 'flex' : 'flex justify-center px-[5vw]'} max-w-[100vw]`}>
         <div className={`${isScrolled ? 'w-full max-w-full rounded-none m-0' : 'w-full max-w-screen-2xl'} bg-white rounded-[10px] opacity-100 shadow-[0_2px_8px_rgba(0,0,0,0.1)] ${isScrolled ? 'h-16' : 'h-20'} pointer-events-auto transition-all duration-300 relative`}>
           <div className="fixed left-[calc(max(5vw,(100vw-1536px)/2)+1rem)] sm:left-[calc(max(5vw,(100vw-1536px)/2)+1.5rem)] lg:left-[calc(max(5vw,(100vw-1536px)/2)+2rem)] flex items-center gap-3 shrink-0 pointer-events-auto z-20 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', transform: 'translateY(-50%)' }}>
             <img src={logo} alt="D-TIDE-KG" className={`${isScrolled ? 'h-8' : 'h-12'} w-auto transition-all duration-300 object-contain`} />
           </div>
-          <div className={`${isScrolled ? 'w-full' : 'max-w-screen-2xl'} mx-auto flex items-center justify-between h-full pl-4 sm:pl-6 lg:pl-8 ${isScrolled ? 'pr-3' : 'pr-4 sm:pr-6 lg:pr-8'}`}>
+          <div className={`${isScrolled ? 'container mx-auto px-3' : 'max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8'} flex items-center justify-between h-full`}>
             <div className="flex items-center gap-3 shrink-0" style={{ width: isScrolled ? '3rem' : '4.5rem' }}>
             </div>
 
