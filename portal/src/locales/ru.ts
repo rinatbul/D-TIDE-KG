@@ -49,6 +49,9 @@ export default {
       title: 'Документация',
       download: 'Скачать',
     },
+    newsDetail: {
+      relatedNews: 'СМОТРИТЕ ТАКЖЕ',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Сайт не является публичной офертой',
     },

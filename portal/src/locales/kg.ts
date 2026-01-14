@@ -49,6 +49,9 @@ export default {
       title: 'Документация',
       download: 'Жүктөп алуу',
     },
+    newsDetail: {
+      relatedNews: 'ДАГЫ КАРАҢЫЗ',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Бул сайт коомдук сунуш эмес',
     },

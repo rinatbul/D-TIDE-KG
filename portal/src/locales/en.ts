@@ -49,6 +49,9 @@ export default {
       title: 'Documentation',
       download: 'Download',
     },
+    newsDetail: {
+      relatedNews: 'SEE ALSO',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. This website is not a public offer',
     },

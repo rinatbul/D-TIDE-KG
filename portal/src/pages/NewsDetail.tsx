@@ -6,6 +6,13 @@ import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
 import { Divider } from '../components/ui/Divider';
 import { mockNewsContent, defaultNewsContent } from '../mocks/news';
 
+const categoryKeys: Record<string, string> = {
+  'Все': 'all',
+  'Мероприятия': 'events',
+  'Семинар': 'seminar',
+  'Круглый стол': 'roundTable',
+};
+
 export const NewsDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -13,6 +20,10 @@ export const NewsDetail = () => {
   const news = newsId && mockNewsContent[newsId] 
     ? mockNewsContent[newsId]
     : { ...defaultNewsContent, id: newsId || 1 };
+
+  const translatedType = categoryKeys[news.type] 
+    ? t(`newsCategories.${categoryKeys[news.type]}`) 
+    : news.type;
 
   return (
     <PageLayout
@@ -31,7 +42,7 @@ export const NewsDetail = () => {
     >
               <p className="font-onest font-normal text-sm leading-none text-gray-text mb-8">
                 <span>{news.date}</span>
-                <span className="mx-2">{news.type}</span>
+                <span className="mx-2">{translatedType}</span>
               </p>
 
               <NewsDetailCarousel />
