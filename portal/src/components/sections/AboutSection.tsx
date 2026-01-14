@@ -2,45 +2,16 @@ import projectGoalsIcon from '/projectGoals.png';
 import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
 import contentPhoto from '/Контент фото.png';
+import { SectionTitle } from '../ui/SectionTitle';
+import { ContentContainer } from '../ui/ContentContainer';
+import { projectTasks, projectGoals } from '../../mocks/about';
 
 export const AboutSection = () => {
-  const projectTasks = [
-    {
-      title: 'Цифровая трансформация PhD-образования:',
-      description: 'Разработка ИТ-платформы и цифровых PhD-куррикулумов.'
-    },
-    {
-      title: 'Гармонизация программ:',
-      description: 'Адаптация к стандартам EHEA и Болонского процесса, повышение международной сопоставимости.'
-    },
-    {
-      title: 'Развитие человеческого потенциала:',
-      description: 'Обучение 100 сотрудников — академического и административного состава.'
-    },
-    {
-      title: 'Содействие партнёрству:',
-      description: 'Укрепление международного сотрудничества между европейскими и кыргызскими университетами.'
-    },
-    {
-      title: 'Укрепление управленческих механизмов:',
-      description: 'Интеграция цифровых PhD-подходов в национальные документы, улучшение нормативной базы.'
-    },
-  ];
-
-  const projectGoals = [
-    'Обеспечение справедливого и качественного докторского образования с применением цифровых технологий по всей территории Кыргызской Республики.',
-    'Трансформацию PhD-образования через цифровизацию программ, повышение доступности и снижение региональных дисбалансов.',
-    'Расширение возможностей регионов, включая малообслуживаемые территории.',
-    'Гармонизацию докторских программ со стандартами Европейского пространства высшего образования (EHEA) и Болонского процесса.',
-    'Развитие кадрового потенциала вузов и научных организаций.',
-    'Укрепление партнёрства Кыргызстан–Европа, продвижение совместных инициатив и обмена знаниями.',
-    'Интеграцию цифровых PhD-подходов в государственную политику.',
-  ];
 
   return (
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
-      <div className="container mx-auto px-4">
-        <h2 className="font-onest font-bold text-[36px] leading-none uppercase text-center text-[#0052B4] mb-12">О ПРОЕКТЕ</h2>
+      <ContentContainer variant="container-px30">
+        <SectionTitle variant="blue">О ПРОЕКТЕ</SectionTitle>
         <div className="flex flex-col gap-16 justify-center">
           <div className="flex flex-row gap-8 items-stretch">
             <div className="bg-[#F0F0F0] rounded-lg  flex-1">
@@ -84,7 +55,7 @@ export const AboutSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ContentContainer>
     </section>
   );
 };

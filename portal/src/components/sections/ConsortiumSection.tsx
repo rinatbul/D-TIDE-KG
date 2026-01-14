@@ -1,23 +1,7 @@
 import { useEffect, useRef } from 'react';
-import knuLogo from '/KNU.jpg';
-import image2 from '/image 2.png';
-import image5 from '/image 5.png';
-import image6 from '/image 6.png';
-import image8 from '/image 8.png';
-import image17 from '/image 17.png';
-import engIHSM from '/Eng_IHSM.png';
-import logoMNVOiI from '/Logo_МНВОиИ.png';
-
-const consortiumLogos = [
-  { id: 1, src: knuLogo, alt: 'KNU' },
-  { id: 2, src: image2, alt: 'Partner 2' },
-  { id: 3, src: image5, alt: 'Partner 3' },
-  { id: 4, src: image6, alt: 'Partner 4' },
-  { id: 5, src: image8, alt: 'Partner 5' },
-  { id: 6, src: image17, alt: 'Partner 6' },
-  { id: 7, src: engIHSM, alt: 'Eng IHSM' },
-  { id: 8, src: logoMNVOiI, alt: 'МНВОиИ' },
-];
+import { SectionTitle } from '../ui/SectionTitle';
+import { ContentContainer } from '../ui/ContentContainer';
+import { consortiumLogos } from '../../mocks/consortium';
 
 export const ConsortiumSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -53,9 +37,9 @@ export const ConsortiumSection = () => {
 
   return (
     <section className="bg-[#0052B4] pt-21 pb-15">
-      <div className="max-w-screen-2xl mx-auto px-4">
-        <h2 className="font-onest font-semibold text-[36px] leading-none uppercase text-center text-white mb-12">КОНСОРЦИУМ</h2>
-      </div>
+      <ContentContainer variant="screen-2xl-px4">
+        <SectionTitle variant="white">КОНСОРЦИУМ</SectionTitle>
+      </ContentContainer>
         <div
           ref={scrollRef}
         className="flex gap-8 overflow-x-hidden overflow-y-visible py-6 px-4"

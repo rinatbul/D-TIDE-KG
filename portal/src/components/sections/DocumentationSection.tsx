@@ -3,23 +3,8 @@ import pdfIcon from '/PDF.png';
 import downloadIcon from '/Download.png';
 import { Pagination } from '../ui/Pagination';
 import { PageTitle } from '../ui/PageTitle';
-
-interface Document {
-  id: number;
-  title: string;
-  date: string;
-  format: string;
-  size: string;
-  url?: string;
-}
-
-const mockDocuments: Document[] = Array.from({ length: 24 }, (_, i) => ({
-  id: i + 1,
-  title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  date: `${10 + (i % 20)}.${(i % 12) + 1}.2025`,
-  format: 'PDF',
-  size: '2MB',
-}));
+import { ContentContainer } from '../ui/ContentContainer';
+import { mockDocuments } from '../../mocks/documents';
 
 export const DocumentationSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +18,7 @@ export const DocumentationSection = () => {
 
   return (
     <section className="mb-21">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <PageTitle>Документация</PageTitle>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[6.125rem] gap-y-7 mb-8">
@@ -70,7 +55,7 @@ export const DocumentationSection = () => {
           onPageChange={setCurrentPage}
           variant="news"
         />
-      </div>
+      </ContentContainer>
     </section>
   );
 };

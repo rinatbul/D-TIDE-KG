@@ -33,10 +33,14 @@ export const PageLayout = ({
   sectionClassName = 'mb-21',
   additionalContent,
 }: PageLayoutProps) => {
+  const containerVariant = container === 'container' 
+    ? 'screen-2xl-px6' 
+    : 'screen-2xl-px4';
+
   const mainContent = (
     <>
       {breadcrumbItems && (
-        <ContentContainer container={container} mb>
+        <ContentContainer variant={containerVariant} mb>
           <Breadcrumb items={breadcrumbItems} />
         </ContentContainer>
       )}
@@ -45,7 +49,7 @@ export const PageLayout = ({
 
       {title ? (
         <section className={sectionClassName}>
-          <ContentContainer container={container}>
+          <ContentContainer variant={containerVariant}>
             <PageTitle mb={titleMb}>{title}</PageTitle>
             {children}
           </ContentContainer>

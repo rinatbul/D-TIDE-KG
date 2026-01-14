@@ -1,30 +1,9 @@
 import { PageLayout } from '../components/layout/PageLayout';
 import projectGoalsIcon from '/projectGoals.png';
 import HeaderImage from '/HeaderImage.png';
+import { aboutPageGoals } from '../mocks/about';
 
 export const About = () => {
-  const projectGoals = [
-    {
-      title: 'Цифровизация программ PhD с ориентацией на качество',
-      description: 'Разработка и пилотирование цифровых докторских программ на IT-платформе для расширения доступа к образованию в малообслуживаемых регионах.'
-    },
-    {
-      title: 'Согласование с международными стандартами',
-      description: 'Гармонизация докторских программ с принципами EHEA и Болонского процесса для повышения их международной узнаваемости.'
-    },
-    {
-      title: 'Наращивание потенциала',
-      description: 'Обучение академического и административного персонала цифровым компетенциям и управлению образовательными программами для повышения качества докторского образования.'
-    },
-    {
-      title: 'Сотрудничество и совместное использование ресурсов',
-      description: 'Развитие партнёрства между университетами Кыргызстана и университетами ЕС для оптимизации ресурсов и обмена знаниями.'
-    },
-    {
-      title: 'Развитие управления и политики',
-      description: 'Укрепление управленческих механизмов и интеграция цифрового докторского образования в национальные стратегии под руководством Министерства науки, высшего образования и инновации Кыргызской Республики.'
-    },
-  ];
 
   return (
     <PageLayout
@@ -44,7 +23,7 @@ export const About = () => {
                       <h2 className="font-onest font-bold text-xl leading-none text-black">Ключевые цели проекта</h2>
                     </div>
                     <ol className="space-y-3">
-                      {projectGoals.map((goal, index) => (
+                      {aboutPageGoals.map((goal, index) => (
                         <li key={index} className="flex gap-3 items-baseline">
                           <span className="font-onest font-normal text-base leading-none text-black shrink-0">{index + 1}.</span>
                           <span className="font-onest font-normal text-base leading-none text-black">

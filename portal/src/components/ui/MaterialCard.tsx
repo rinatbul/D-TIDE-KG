@@ -48,7 +48,7 @@ export const MaterialCard = ({ material }: MaterialCardProps) => {
   const formatIcon = getFormatIcon(material.format);
 
   return (
-    <div className="bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]">
+    <div className="group bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_0px_12px_0px_rgba(0,0,0,0.25)]">
       <img
         src={material.imageUrl || contentPhoto}
         alt={material.title}
@@ -57,7 +57,7 @@ export const MaterialCard = ({ material }: MaterialCardProps) => {
       <div className="p-4">
         <div className="flex items-center gap-3 mb-3">
           <img src={formatIcon} alt={material.format} className="w-[28px] h-[27px] object-contain shrink-0" />
-          <h3 className="font-onest font-semibold text-xl leading-none text-black">{material.title}</h3>
+          <h3 className="font-onest font-semibold text-xl leading-none text-black transition-colors duration-300 group-hover:text-[#0052B4]">{material.title}</h3>
         </div>
         <p className="font-onest font-normal text-sm leading-none text-black mb-4 line-clamp-1">
           {material.description}

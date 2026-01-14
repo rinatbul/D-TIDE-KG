@@ -1,37 +1,16 @@
-import { Link } from 'react-router-dom';
-import { NewsCard, type NewsItem } from '../ui/NewsCard';
-
-const relatedNews: NewsItem[] = [
-  {
-    id: 1,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  },
-  {
-    id: 2,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  },
-  {
-    id: 3,
-    date: '10.10.2025',
-    type: 'МЕРОПРИЯТИЯ СЕМИНАР',
-    title: 'Heading',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestib...'
-  }
-];
+import { NewsCard } from '../ui/NewsCard';
+import { CardGrid } from '../ui/CardGrid';
+import { ContentContainer } from '../ui/ContentContainer';
+import { ViewMoreButton } from '../ui/ViewMoreButton';
+import { relatedNews } from '../../mocks/news';
 
 export const RelatedNewsSection = () => {
   return (
     <section className="mb-21 mt-10">
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <ContentContainer variant="screen-2xl-px4">
         <h2 className="font-onest font-medium text-[20px] leading-none uppercase text-left text-black mb-10">СМОТРИТЕ ТАКЖЕ</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <CardGrid>
           {relatedNews.map((news) => (
             <NewsCard
               key={news.id}
@@ -42,17 +21,10 @@ export const RelatedNewsSection = () => {
               dateSeparator=" - "
             />
           ))}
-        </div>
+        </CardGrid>
 
-        <div className="flex justify-center">
-          <Link
-            to="/news"
-            className="px-8 py-3 border border-blue-secondary text-blue-secondary rounded font-onest font-medium text-base leading-none transition-all duration-300 hover:border-[#0052B4] hover:text-[#0052B4] no-underline"
-          >
-            Больше новостей
-          </Link>
-        </div>
-      </div>
+        <ViewMoreButton to="/news" variant="outline-thick" />
+      </ContentContainer>
     </section>
   );
 };
