@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NewsCard } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
 import { SectionTitle } from '../ui/SectionTitle';
@@ -7,6 +8,7 @@ import { ContentContainer } from '../ui/ContentContainer';
 import { mockNews } from '../../mocks/news';
 
 export const NewsSection = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const totalPages = Math.ceil(mockNews.length / itemsPerPage);
@@ -14,7 +16,7 @@ export const NewsSection = () => {
   return (
     <section className="mb-21 bg-white">
       <ContentContainer variant="container-px30">
-        <SectionTitle variant="blue">НОВОСТИ</SectionTitle>
+        <SectionTitle variant="blue">{t('sections.news')}</SectionTitle>
         <CardGrid>
           {mockNews.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
             <NewsCard

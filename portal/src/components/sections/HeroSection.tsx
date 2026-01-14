@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import euroFlag from '/euroFlag.png';
 import HeaderImage from '/HeaderImage.png';
 import { api, type HeroSectionData } from '../../lib/api';
 
 export const HeroSection = () => {
+  const { i18n } = useTranslation();
   const queryClient = useQueryClient();
   
   const { data, isLoading } = useQuery<HeroSectionData>({
@@ -20,6 +22,10 @@ export const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [queryClient]);
+
+  useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: ['heroSection'] });
+  }, [i18n.language, queryClient]);
 
   if (isLoading) {
     return (

@@ -31,6 +31,15 @@ export default {
       seminar: 'Seminar',
       roundTable: 'Round Table',
     },
+    sections: {
+      about: 'ABOUT THE PROJECT',
+      news: 'NEWS',
+      consortium: 'CONSORTIUM',
+      projectGoal: 'Project Goal',
+      projectTasks: 'Project Tasks',
+      erasmusTitle: 'Co-funded by the\nErasmus+ Programme of\nthe European Union',
+      erasmusText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta dictum magna quis lobortis. Nunc elementum metus quis leo vestibulum porttitor. Cras vel hendrerit diam. Sed et lorem lacinia, aliquam lacus vitae, porta risus. Vestibulum ut velit sed nulla interdum placerat. Etiam turpis turpis, mollis vitae tortor sed, gravida faucibus sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at malesuda tortor, vel condimentum ligula. Etiam dapibus eros nibh, semper tempor odio fringilla quis. Praesent pulvinar quam ut leo vulputate pulvinar vel eget neque. Sed ultrices a nisi id interdum. Maecenas pharetra ante sit amet quam varius, sit amet aliquet nisl ultricies. Suspendisse et efficitur dui, rhoncus malesuada erat. Sed a libero sit amet felis molestie tincidunt nec ac ante. Etiam in urna enim. Suspendisse posuere nisl vel sapien convallis, et sollicitudin eros tincidunt.',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. This website is not a public offer',
     },

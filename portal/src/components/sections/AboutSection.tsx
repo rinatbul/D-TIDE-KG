@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import projectGoalsIcon from '/projectGoals.png';
 import rectangleIcon from '/Rectangle.png';
 import goalIcon from '/Goal.png';
@@ -7,17 +8,18 @@ import { ContentContainer } from '../ui/ContentContainer';
 import { projectTasks, projectGoals } from '../../mocks/about';
 
 export const AboutSection = () => {
+  const { t } = useTranslation();
 
   return (
     <section className="mb-21 bg-[#F0F0F0] pt-21 pb-15">
       <ContentContainer variant="container-px30">
-        <SectionTitle variant="blue">О ПРОЕКТЕ</SectionTitle>
+        <SectionTitle variant="blue">{t('sections.about')}</SectionTitle>
         <div className="flex flex-col gap-16 justify-center">
           <div className="flex flex-row gap-8 items-stretch">
             <div className="bg-[#F0F0F0] rounded-lg  flex-1">
               <div className="flex items-center gap-4 mb-6">
                 <img src={projectGoalsIcon} alt="Цели проекта" style={{ width: '37px', height: '37px' }} />
-                <h3 className="font-onest font-bold text-xl leading-none text-black">Цель проекта</h3>
+                <h3 className="font-onest font-bold text-xl leading-none text-black">{t('sections.projectGoal')}</h3>
               </div>
               <ol className="space-y-3">
                 {projectGoals.map((goal, index) => (
@@ -39,7 +41,7 @@ export const AboutSection = () => {
                   <img src={rectangleIcon} alt="" className="absolute inset-0 w-full h-full" />
                   <img src={goalIcon} alt="Задачи" className="absolute inset-0 w-full h-full p-1" />
                 </div>
-                <h3 className="font-onest font-bold text-xl leading-none text-black">Задачи проекта</h3>
+                <h3 className="font-onest font-bold text-xl leading-none text-black">{t('sections.projectTasks')}</h3>
               </div>
               <ol className="space-y-4">
                 {projectTasks.map((task, index) => (

@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SectionTitle } from '../ui/SectionTitle';
 import { ContentContainer } from '../ui/ContentContainer';
 import { consortiumLogos } from '../../mocks/consortium';
 
 export const ConsortiumSection = () => {
+  const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef(0);
   const isPausedRef = useRef(false);
@@ -38,7 +40,7 @@ export const ConsortiumSection = () => {
   return (
     <section className="bg-[#0052B4] pt-21 pb-15">
       <ContentContainer variant="screen-2xl-px4">
-        <SectionTitle variant="white">КОНСОРЦИУМ</SectionTitle>
+        <SectionTitle variant="white">{t('sections.consortium')}</SectionTitle>
       </ContentContainer>
         <div
           ref={scrollRef}
