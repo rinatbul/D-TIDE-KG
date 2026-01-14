@@ -39,7 +39,7 @@ export const Header = () => {
 
   const getNavClass = (path: string) => {
     const isActive = location.pathname === path;
-    return `font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 ${isActive ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`;
+    return `font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 ${isActive ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`;
   };
 
   useEffect(() => {
@@ -78,11 +78,8 @@ export const Header = () => {
           <div className="fixed left-[calc(max(5vw,(100vw-1536px)/2)+1rem)] sm:left-[calc(max(5vw,(100vw-1536px)/2)+1.5rem)] lg:left-[calc(max(5vw,(100vw-1536px)/2)+2rem)] flex items-center gap-3 shrink-0 pointer-events-auto z-20 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', transform: 'translateY(-50%)' }}>
             <img src={logo} alt="D-TIDE-KG" className={`${isScrolled ? 'h-8' : 'h-12'} w-auto transition-all duration-300 object-contain`} />
           </div>
-          <div className={`${isScrolled ? 'container mx-auto px-3' : 'max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8'} flex items-center justify-between h-full`}>
-            <div className="flex items-center gap-3 shrink-0" style={{ width: isScrolled ? '3rem' : '4.5rem' }}>
-            </div>
 
-            <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6 fixed pointer-events-auto z-10 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', left: '50%', transform: 'translate(-50%, -50%)' }}>
             <Link to="/" className={getNavClass('/')}>
               ГЛАВНАЯ
             </Link>
@@ -95,7 +92,7 @@ export const Header = () => {
             <div className="relative" ref={workPackagesRef}>
               <button
                 onClick={toggleWorkPackages}
-                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
+                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
               >
                 РАБОЧИЕ ПАКЕТЫ
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
@@ -131,7 +128,7 @@ export const Header = () => {
             </Link>
           </nav>
 
-            <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 fixed right-[calc(max(5vw,(100vw-1536px)/2)+1rem)] sm:right-[calc(max(5vw,(100vw-1536px)/2)+1.5rem)] lg:right-[calc(max(5vw,(100vw-1536px)/2)+2rem)] pointer-events-auto z-20 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', transform: 'translateY(-50%)' }}>
             <div className="relative w-24" ref={searchRef}>
               {isSearchOpen ? (
                 <div className="flex items-center gap-2">
@@ -204,9 +201,10 @@ export const Header = () => {
             </div>
           </div>
 
+          <div className={`${isScrolled ? 'container mx-auto px-3' : 'max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8'} flex items-center justify-end h-full lg:hidden`}>
             <button
               onClick={toggleMenu}
-              className="lg:hidden text-gray-700 hover:text-blue-600"
+              className="text-gray-700 hover:text-blue-600"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -231,7 +229,7 @@ export const Header = () => {
             <div className="flex flex-col">
               <button
                 onClick={() => setIsWorkPackagesOpen(!isWorkPackagesOpen)}
-                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center justify-between ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
+                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center justify-between ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
               >
                 РАБОЧИЕ ПАКЕТЫ
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
