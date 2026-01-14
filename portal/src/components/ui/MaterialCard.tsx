@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import pdfIcon from '/PDF.png';
 import docIcon from '/DOC.png';
 import pptIcon from '/PPT.png';
@@ -33,6 +34,7 @@ const getFormatIcon = (format: string) => {
 };
 
 export const MaterialCard = ({ material }: MaterialCardProps) => {
+  const { t } = useTranslation();
   const handleOpen = () => {
     if (material.openUrl) {
       window.open(material.openUrl, '_blank');
@@ -75,15 +77,15 @@ export const MaterialCard = ({ material }: MaterialCardProps) => {
               onClick={handleOpen}
               className="flex items-center gap-1.5 bg-none border-none cursor-pointer transition-opacity duration-300 hover:opacity-70 p-0"
             >
-              <span className="font-onest font-medium text-[10px] leading-none text-[#0052B4]">Открыть</span>
-              <img src={openIcon} alt="Открыть" className="w-[13px] h-[13px] object-contain" />
+              <span className="font-onest font-medium text-[10px] leading-none text-[#0052B4]">{t('materialCard.open')}</span>
+              <img src={openIcon} alt={t('materialCard.open')} className="w-[13px] h-[13px] object-contain" />
             </button>
             <button
               onClick={handleDownload}
               className="flex items-center gap-1.5 bg-none border-none cursor-pointer transition-opacity duration-300 hover:opacity-70 p-0"
             >
-              <span className="font-onest font-medium text-[10px] leading-none text-[#0052B4]">Скачать</span>
-              <img src={downloadIcon} alt="Скачать" className="w-[13px] h-[13px] object-contain" />
+              <span className="font-onest font-medium text-[10px] leading-none text-[#0052B4]">{t('materialCard.download')}</span>
+              <img src={downloadIcon} alt={t('materialCard.download')} className="w-[13px] h-[13px] object-contain" />
             </button>
           </div>
         </div>

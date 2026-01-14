@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import newsImage from '/news.png';
 
 export interface NewsItem {
@@ -18,6 +19,13 @@ interface NewsCardProps {
   hoverEffect?: 'translate' | 'shadow';
 }
 
+const categoryKeys: Record<string, string> = {
+  'Все': 'all',
+  'Мероприятия': 'events',
+  'Семинар': 'seminar',
+  'Круглый стол': 'roundTable',
+};
+
 export const NewsCard = ({
   news,
   variant = 'link',
@@ -25,6 +33,7 @@ export const NewsCard = ({
   readMoreColor = 'blue',
   hoverEffect = 'translate',
 }: NewsCardProps) => {
+  const { t } = useTranslation();
   const baseClasses = variant === 'link' 
     ? 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300 block no-underline'
     : 'bg-white rounded-[10px] border border-gray-border overflow-hidden transition-all duration-300';
@@ -37,6 +46,10 @@ export const NewsCard = ({
     ? 'text-[#0052B4]' 
     : 'text-green-primary';
 
+  const translatedType = categoryKeys[news.type] 
+    ? t(`newsCategories.${categoryKeys[news.type]}`) 
+    : news.type;
+
   const cardContent = (
     <>
       <img
@@ -48,21 +61,21 @@ export const NewsCard = ({
         <p className="mb-2 flex items-center gap-1.5">
           <span className="font-onest font-normal text-[10px] leading-none text-[#D80027]">{news.date}</span>
           <span className="w-0.5 h-0.5 rounded-full bg-[#919EAB] opacity-100"></span>
-          <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{news.type}</span>
+          <span className="font-onest font-medium text-[10px] leading-none uppercase text-black">{translatedType}</span>
         </p>
         <h3 className="font-onest font-semibold text-xl leading-none text-black mb-2 transition-colors duration-300 group-hover:text-[#0052B4]">{news.title}</h3>
         <p className={`text-gray-600 text-sm ${showReadMore ? 'mb-4' : ''}`}>{news.excerpt}</p>
         {showReadMore && (
           variant === 'link' ? (
             <span className={`font-onest font-medium text-xs leading-none ${readMoreColorClass}`}>
-              Подробнее &gt;
+              {t('newsCard.readMore')} &gt;
             </span>
           ) : (
             <Link
               to={`/news/${news.id}`}
               className={`font-onest font-medium text-xs leading-none ${readMoreColorClass} no-underline`}
             >
-              Подробнее &gt;
+              {t('newsCard.readMore')} &gt;
             </Link>
           )
         )}

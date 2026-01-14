@@ -52,6 +52,13 @@ export default {
     newsDetail: {
       relatedNews: 'SEE ALSO',
     },
+    newsCard: {
+      readMore: 'Read More',
+    },
+    materialCard: {
+      open: 'Open',
+      download: 'Download',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. This website is not a public offer',
     },

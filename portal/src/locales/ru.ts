@@ -52,6 +52,13 @@ export default {
     newsDetail: {
       relatedNews: 'СМОТРИТЕ ТАКЖЕ',
     },
+    newsCard: {
+      readMore: 'Подробнее',
+    },
+    materialCard: {
+      open: 'Открыть',
+      download: 'Скачать',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Сайт не является публичной офертой',
     },

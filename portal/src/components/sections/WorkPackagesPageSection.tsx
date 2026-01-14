@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { workPackagesList } from '../../mocks/workPackages';
 
 export const WorkPackagesPageSection = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-18 gap-x-18 justify-items-center">
       {workPackagesList.map((wp) => (
@@ -16,7 +19,7 @@ export const WorkPackagesPageSection = () => {
           <div className="p-6 flex flex-col flex-1">
             <h3 className="font-onest font-bold text-xl leading-none text-black mb-4">{wp.title}</h3>
             <span className="font-onest font-medium text-xs leading-none text-[#0052B4] mt-auto">
-              Подробнее &gt;
+              {t('newsCard.readMore')} &gt;
             </span>
           </div>
         </Link>

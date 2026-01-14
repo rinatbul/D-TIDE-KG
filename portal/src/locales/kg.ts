@@ -52,6 +52,13 @@ export default {
     newsDetail: {
       relatedNews: 'ДАГЫ КАРАҢЫЗ',
     },
+    newsCard: {
+      readMore: 'Толук окуу',
+    },
+    materialCard: {
+      open: 'Ачуу',
+      download: 'Жүктөп алуу',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Бул сайт коомдук сунуш эмес',
     },
