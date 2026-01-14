@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logo from '/logo.png';
 import instagramIcon from '/Instagram.png';
 import facebookIcon from '/Facebook.png';
 import youtubeIcon from '/YouTube.png';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const location = useLocation();
 
   const getLinkClass = (path: string) => {
@@ -22,22 +24,22 @@ export const Footer = () => {
 
           <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
             <Link to="/" className={getLinkClass('/')}>
-              ГЛАВНАЯ
+              {t('nav.home')}
             </Link>
             <Link to="/about" className={getLinkClass('/about')}>
-              О ПРОЕКТЕ
+              {t('nav.about')}
             </Link>
             <Link to="/consortium" className={getLinkClass('/consortium')}>
-              КОНСОРЦИУМ
+              {t('nav.consortium')}
             </Link>
             <Link to="/work-packages" className={getLinkClass('/work-packages')}>
-              РАБОЧИЕ ПАКЕТЫ
+              {t('nav.workPackages')}
             </Link>
             <Link to="/documentation" className={getLinkClass('/documentation')}>
-              ДОКУМЕНТАЦИЯ
+              {t('nav.documentation')}
             </Link>
             <Link to="/news" className={getLinkClass('/news')}>
-              НОВОСТИ
+              {t('nav.news')}
             </Link>
           </nav>
 
@@ -56,7 +58,7 @@ export const Footer = () => {
 
         <div className="border-t border-gray-200 mt-4 pt-4">
           <p className="font-onest font-normal text-lg leading-none text-black text-center">
-            © 2025 D-TIDE-KG. Сайт не является публичной офертой
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

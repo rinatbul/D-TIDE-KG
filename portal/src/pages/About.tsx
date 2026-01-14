@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import { PageLayout } from '../components/layout/PageLayout';
 import projectGoalsIcon from '/projectGoals.png';
 import HeaderImage from '/HeaderImage.png';
 import { aboutPageGoals } from '../mocks/about';
 
 export const About = () => {
+  const { t } = useTranslation();
 
   return (
     <PageLayout
-      breadcrumbItems={[{ label: 'О проекте' }]}
-      title="О проекте"
+      breadcrumbItems={[{ label: t('breadcrumb.about') }]}
+      title={t('pages.about')}
     >
             <p className="text-left mb-8 font-onest font-normal text-base leading-relaxed text-black">
               Проект Erasmus+ «Цифровая трансформация для инклюзивного докторского образования в Кыргызстане» (D-TIDE-KG) направлен на решение актуальной задачи обеспечения справедливого и высококачественного докторского образования за счёт использования потенциала цифровых технологий. Проект опирается на результаты предыдущих инициатив и сосредоточен на цифровизации программ PhD, расширении инклюзивности за счёт вовлечения удалённых регионов, а также на внедрении системных изменений в управление высшим образованием в Кыргызской Республике.

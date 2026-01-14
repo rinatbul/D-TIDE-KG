@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ChevronDown, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logo from '/logo.png';
 import russiaFlag from '/russia.png';
 import usFlag from '/united states.png';
@@ -8,11 +9,11 @@ import kyrgyzstanFlag from '/kyrgyzstan.png';
 import { workPackagesMenu } from '../../mocks/workPackages';
 
 export const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isWorkPackagesOpen, setIsWorkPackagesOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('Русский');
   const [isScrolled, setIsScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -31,10 +32,23 @@ export const Header = () => {
   const toggleWorkPackages = () => setIsWorkPackagesOpen(!isWorkPackagesOpen);
 
   const getCurrentFlag = () => {
-    if (currentLang === 'Русский') return russiaFlag;
-    if (currentLang === 'English') return usFlag;
-    if (currentLang === 'Кыргызча') return kyrgyzstanFlag;
+    if (i18n.language === 'ru') return russiaFlag;
+    if (i18n.language === 'en') return usFlag;
+    if (i18n.language === 'kg') return kyrgyzstanFlag;
     return russiaFlag;
+  };
+
+  const getCurrentLangLabel = () => {
+    if (i18n.language === 'ru') return 'Русский';
+    if (i18n.language === 'en') return 'English';
+    if (i18n.language === 'kg') return 'Кыргызча';
+    return 'Русский';
+  };
+
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('language', lang);
+    setIsLangOpen(false);
   };
 
   const getNavClass = (path: string) => {
@@ -81,20 +95,20 @@ export const Header = () => {
 
           <nav className="hidden lg:flex items-center gap-6 fixed pointer-events-auto z-10 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', left: '50%', transform: 'translate(-50%, -50%)' }}>
             <Link to="/" className={`${getNavClass('/')} whitespace-nowrap`}>
-              ГЛАВНАЯ
+              {t('nav.home')}
             </Link>
             <Link to="/about" className={`${getNavClass('/about')} whitespace-nowrap`}>
-              О ПРОЕКТЕ
+              {t('nav.about')}
             </Link>
             <Link to="/consortium" className={`${getNavClass('/consortium')} whitespace-nowrap`}>
-              КОНСОРЦИУМ
+              {t('nav.consortium')}
             </Link>
             <div className="relative" ref={workPackagesRef}>
               <button
                 onClick={toggleWorkPackages}
                 className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 whitespace-nowrap ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
               >
-                РАБОЧИЕ ПАКЕТЫ
+                {t('nav.workPackages')}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
               </button>
               {isWorkPackagesOpen && (
@@ -104,7 +118,7 @@ export const Header = () => {
                     onClick={() => setIsWorkPackagesOpen(false)}
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-onest font-medium text-sm"
                   >
-                    Все рабочие пакеты
+                    {t('nav.allWorkPackages')}
                   </Link>
                   <div className="border-t border-gray-200 my-1"></div>
                   {workPackagesMenu.map((wp) => (
@@ -121,10 +135,10 @@ export const Header = () => {
               )}
             </div>
             <Link to="/documentation" className={`${getNavClass('/documentation')} whitespace-nowrap`}>
-              ДОКУМЕНТАЦИЯ
+              {t('nav.documentation')}
             </Link>
             <Link to="/news" className={`${getNavClass('/news')} whitespace-nowrap`}>
-              НОВОСТИ
+              {t('nav.news')}
             </Link>
           </nav>
 
@@ -136,7 +150,7 @@ export const Header = () => {
                   <input
                     ref={searchInputRef}
                     type="text"
-                    placeholder="Поиск..."
+                    placeholder={`${t('nav.search')}...`}
                     className="py-1 focus:outline-none flex-1 bg-transparent text-gray-700 min-w-0"
                   />
                   <button
@@ -152,7 +166,7 @@ export const Header = () => {
                   className="flex items-center gap-2 py-1"
                 >
                   <Search className="w-4 h-4 text-gray-500" />
-                  <span className="font-onest font-normal text-base leading-none text-black">Поиск</span>
+                  <span className="font-onest font-normal text-base leading-none text-black">{t('nav.search')}</span>
                 </button>
               )}
             </div>
@@ -161,36 +175,27 @@ export const Header = () => {
                 onClick={toggleLang}
                 className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
               >
-                <img src={getCurrentFlag()} alt={currentLang} style={{ width: '17px', height: '17px' }} />
+                <img src={getCurrentFlag()} alt={getCurrentLangLabel()} style={{ width: '17px', height: '17px' }} />
                 <ChevronDown className="w-4 h-4" />
               </button>
               {isLangOpen && (
                 <div className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[150px] z-50">
                   <button
-                    onClick={() => {
-                      setCurrentLang('Русский');
-                      setIsLangOpen(false);
-                    }}
+                    onClick={() => changeLanguage('ru')}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
                     <img src={russiaFlag} alt="RU" style={{ width: '17px', height: '17px' }} />
                     Русский
                   </button>
                   <button
-                    onClick={() => {
-                      setCurrentLang('English');
-                      setIsLangOpen(false);
-                    }}
+                    onClick={() => changeLanguage('en')}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
                     <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                     English
                   </button>
                   <button
-                    onClick={() => {
-                      setCurrentLang('Кыргызча');
-                      setIsLangOpen(false);
-                    }}
+                    onClick={() => changeLanguage('kg')}
                     className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
                     <img src={kyrgyzstanFlag} alt="KG" style={{ width: '17px', height: '17px' }} />
@@ -218,20 +223,20 @@ export const Header = () => {
             <div className={`${isScrolled ? 'container mx-auto px-6' : 'px-4 sm:px-6'}`}>
               <nav className="py-4 flex flex-col gap-4">
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={getNavClass('/')}>
-              ГЛАВНАЯ
+              {t('nav.home')}
             </Link>
             <Link to="/about" onClick={() => setIsMenuOpen(false)} className={getNavClass('/about')}>
-              О ПРОЕКТЕ
+              {t('nav.about')}
             </Link>
             <Link to="/consortium" onClick={() => setIsMenuOpen(false)} className={getNavClass('/consortium')}>
-              КОНСОРЦИУМ
+              {t('nav.consortium')}
             </Link>
             <div className="flex flex-col">
               <button
                 onClick={() => setIsWorkPackagesOpen(!isWorkPackagesOpen)}
                 className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center justify-between ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
               >
-                РАБОЧИЕ ПАКЕТЫ
+                {t('nav.workPackages')}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
               </button>
               {isWorkPackagesOpen && (
@@ -244,7 +249,7 @@ export const Header = () => {
                     }}
                     className="font-onest font-medium text-sm text-gray-700 hover:text-[#0072C6]"
                   >
-                    Все рабочие пакеты
+                    {t('nav.allWorkPackages')}
                   </Link>
                   {workPackagesMenu.map((wp) => (
                     <Link
@@ -263,10 +268,10 @@ export const Header = () => {
               )}
             </div>
             <Link to="/documentation" onClick={() => setIsMenuOpen(false)} className={getNavClass('/documentation')}>
-              ДОКУМЕНТАЦИЯ
+              {t('nav.documentation')}
             </Link>
             <Link to="/news" onClick={() => setIsMenuOpen(false)} className={getNavClass('/news')}>
-              НОВОСТИ
+              {t('nav.news')}
             </Link>
             <div className="pt-4 border-t border-gray-200">
               <div className="relative mb-4">
@@ -274,7 +279,7 @@ export const Header = () => {
                   <div className="flex items-center">
                     <input
                       type="text"
-                      placeholder="Поиск"
+                      placeholder={t('nav.search')}
                       className="flex-1 px-3 py-2 focus:outline-none bg-transparent"
                     />
                     <button
@@ -290,7 +295,7 @@ export const Header = () => {
                     className="flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-blue-600"
                   >
                     <Search className="w-5 h-5" />
-                    <span className="text-gray-700">Поиск</span>
+                    <span className="text-gray-700">{t('nav.search')}</span>
                   </button>
                 )}
               </div>
@@ -299,36 +304,27 @@ export const Header = () => {
                   onClick={toggleLang}
                   className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-blue-600"
                 >
-                  <img src={getCurrentFlag()} alt={currentLang} style={{ width: '17px', height: '17px' }} />
+                  <img src={getCurrentFlag()} alt={getCurrentLangLabel()} style={{ width: '17px', height: '17px' }} />
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {isLangOpen && (
                   <div className="mt-2 bg-white border border-gray-200 rounded-md py-2">
                     <button
-                      onClick={() => {
-                        setCurrentLang('Русский');
-                        setIsLangOpen(false);
-                      }}
+                      onClick={() => changeLanguage('ru')}
                       className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <img src={russiaFlag} alt="RU" style={{ width: '17px', height: '17px' }} />
                       Русский
                     </button>
                     <button
-                      onClick={() => {
-                        setCurrentLang('English');
-                        setIsLangOpen(false);
-                      }}
+                      onClick={() => changeLanguage('en')}
                       className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <img src={usFlag} alt="EN" style={{ width: '17px', height: '17px' }} />
                       English
                     </button>
                     <button
-                      onClick={() => {
-                        setCurrentLang('Кыргызча');
-                        setIsLangOpen(false);
-                      }}
+                      onClick={() => changeLanguage('kg')}
                       className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <img src={kyrgyzstanFlag} alt="KG" style={{ width: '17px', height: '17px' }} />

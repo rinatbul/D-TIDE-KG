@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { PageLayout } from '../components/layout/PageLayout';
 import { WorkPackageNewsSection } from '../components/sections/WorkPackageNewsSection';
 import { WorkPackagePartnersSection } from '../components/sections/WorkPackagePartnersSection';
@@ -7,6 +8,7 @@ import contentPhoto from '/contentPhoto.png';
 import { workPackagesDetail } from '../mocks/workPackages';
 
 export const WorkPackageDetail = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const workPackage = id ? workPackagesDetail[id] : null;
 
@@ -21,7 +23,7 @@ export const WorkPackageDetail = () => {
   return (
     <PageLayout
       breadcrumbItems={[
-              { label: 'Рабочие пакеты', path: '/work-packages' },
+              { label: t('breadcrumb.workPackages'), path: '/work-packages' },
               { label: workPackage.title }
             ]}
       title={workPackage.title}

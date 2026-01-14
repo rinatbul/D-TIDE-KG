@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { PageLayout } from '../components/layout/PageLayout';
 import { NewsDetailCarousel } from '../components/sections/NewsDetailCarousel';
 import { RelatedNewsSection } from '../components/sections/RelatedNewsSection';
@@ -6,6 +7,7 @@ import { Divider } from '../components/ui/Divider';
 import { mockNewsContent, defaultNewsContent } from '../mocks/news';
 
 export const NewsDetail = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const newsId = id ? parseInt(id, 10) : null;
   const news = newsId && mockNewsContent[newsId] 
@@ -15,7 +17,7 @@ export const NewsDetail = () => {
   return (
     <PageLayout
       breadcrumbItems={[
-                { label: 'Новости', path: '/news' },
+                { label: t('breadcrumb.news'), path: '/news' },
                 { label: news.title }
               ]}
       title={news.title}
