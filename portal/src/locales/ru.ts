@@ -25,6 +25,12 @@ export default {
       documentation: 'Документация',
       news: 'Новости',
     },
+    newsCategories: {
+      all: 'Все',
+      events: 'Мероприятия',
+      seminar: 'Семинар',
+      roundTable: 'Круглый стол',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Сайт не является публичной офертой',
     },

@@ -25,6 +25,12 @@ export default {
       documentation: 'Documentation',
       news: 'News',
     },
+    newsCategories: {
+      all: 'All',
+      events: 'Events',
+      seminar: 'Seminar',
+      roundTable: 'Round Table',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. This website is not a public offer',
     },

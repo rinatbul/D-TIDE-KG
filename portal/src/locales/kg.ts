@@ -25,6 +25,12 @@ export default {
       documentation: 'Документация',
       news: 'Жаңылыктар',
     },
+    newsCategories: {
+      all: 'Баары',
+      events: 'Иш-чаралар',
+      seminar: 'Семинар',
+      roundTable: 'Тегерек стол',
+    },
     footer: {
       copyright: '© 2025 D-TIDE-KG. Бул сайт коомдук сунуш эмес',
     },

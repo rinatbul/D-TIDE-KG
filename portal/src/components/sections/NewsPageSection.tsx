@@ -1,10 +1,19 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NewsCard } from '../ui/NewsCard';
 import { Pagination } from '../ui/Pagination';
 import { CardGrid } from '../ui/CardGrid';
 import { mockNewsWithCategory, newsCategories } from '../../mocks/news';
 
+const categoryKeys = {
+  'Все': 'all',
+  'Мероприятия': 'events',
+  'Семинар': 'seminar',
+  'Круглый стол': 'roundTable',
+} as const;
+
 export const NewsPageSection = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -27,19 +36,22 @@ export const NewsPageSection = () => {
   return (
     <div>
       <div className="flex gap-4 mb-10">
-        {newsCategories.map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryChange(category)}
-            className={`px-6 py-2 rounded font-onest font-medium text-sm leading-none transition-colors duration-300 ${
-              selectedCategory === category
-                ? 'bg-[#1EB53A] text-white'
-                : 'bg-[#E8F5E9] text-black hover:bg-[#C8E6C9]'
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+        {newsCategories.map((category) => {
+          const categoryKey = categoryKeys[category as keyof typeof categoryKeys];
+          return (
+            <button
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className={`px-6 py-2 rounded font-onest font-medium text-sm leading-none transition-colors duration-300 ${
+                selectedCategory === category
+                  ? 'bg-[#1EB53A] text-white'
+                  : 'bg-[#E8F5E9] text-black hover:bg-[#C8E6C9]'
+              }`}
+            >
+              {t(`newsCategories.${categoryKey}`)}
+            </button>
+          );
+        })}
       </div>
 
       <CardGrid>
