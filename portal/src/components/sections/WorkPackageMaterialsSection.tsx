@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MaterialCard } from '../ui/MaterialCard';
 import { Pagination } from '../ui/Pagination';
 import { SectionTitle } from '../ui/SectionTitle';
@@ -7,6 +8,7 @@ import { ContentContainer } from '../ui/ContentContainer';
 import { mockMaterials } from '../../mocks/materials';
 
 export const WorkPackageMaterialsSection = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const totalPages = Math.ceil(mockMaterials.length / itemsPerPage);
@@ -19,7 +21,7 @@ export const WorkPackageMaterialsSection = () => {
   return (
     <section className="mb-21 bg-[#F0F0F0]">
       <ContentContainer variant="screen-2xl-px4">
-        <SectionTitle variant="black">МАТЕРИАЛЫ:</SectionTitle>
+        <SectionTitle variant="black">{t('workPackage.materials')}</SectionTitle>
         
         <CardGrid>
           {paginatedMaterials.map((material) => (

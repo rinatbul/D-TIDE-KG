@@ -6,7 +6,6 @@ import { ContentContainer } from '../ui/ContentContainer';
 
 export const ErasmusSection = () => {
   const { t } = useTranslation();
-  const titleLines = t('sections.erasmusTitle').split('\n');
 
   return (
     <section className="relative w-full h-screen max-h-screen flex items-center justify-center overflow-hidden">
@@ -24,12 +23,9 @@ export const ErasmusSection = () => {
               <img src={euroFlag} alt="EU Flag" className="w-[20vw] min-w-[200px] h-auto" />
             </div>
             <h2 className="font-onest font-bold text-[40px] leading-[135%] text-white">
-              {titleLines.map((line, index) => (
-                <span key={index}>
-                  {line}
-                  {index < titleLines.length - 1 && <br />}
-                </span>
-              ))}
+              Co-funded by the<br />
+              Erasmus+ Programme of<br />
+              the European Union
             </h2>
           </div>
           <p className="font-onest font-normal text-lg leading-none text-center text-white max-w-6xl mx-auto">

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import pdfIcon from '/PDF.png';
 import downloadIcon from '/Download.png';
 import { Pagination } from '../ui/Pagination';
@@ -7,6 +8,7 @@ import { ContentContainer } from '../ui/ContentContainer';
 import { mockDocuments } from '../../mocks/documents';
 
 export const DocumentationSection = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const totalPages = Math.ceil(mockDocuments.length / itemsPerPage);
@@ -19,7 +21,7 @@ export const DocumentationSection = () => {
   return (
     <section className="mb-21">
       <ContentContainer variant="screen-2xl-px4">
-        <PageTitle>Документация</PageTitle>
+        <PageTitle>{t('documentation.title')}</PageTitle>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[6.125rem] gap-y-7 mb-8">
           {paginatedDocuments.map((doc) => (
@@ -40,8 +42,8 @@ export const DocumentationSection = () => {
                     <span className="font-onest font-medium text-[10px] leading-none text-center uppercase text-black">{doc.size}</span>
                   </div>
                   <button className="flex flex-row items-center gap-1 bg-none border-none cursor-pointer transition-opacity duration-300 hover:opacity-70 p-1 shrink-0">
-                    <span className="font-onest font-medium text-[10px] leading-none text-blue-secondary">Скачать</span>
-                    <img src={downloadIcon} alt="Скачать" className="w-5 h-5 object-contain" />
+                    <span className="font-onest font-medium text-[10px] leading-none text-blue-secondary">{t('documentation.download')}</span>
+                    <img src={downloadIcon} alt={t('documentation.download')} className="w-5 h-5 object-contain" />
                   </button>
                 </div>
               </div>
