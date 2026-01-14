@@ -15,18 +15,23 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
         <Link to="/" className="flex items-center transition-opacity duration-300 hover:opacity-70">
           <img src={homeIcon} alt="Home" className="w-6 h-6" />
         </Link>
-        {items.map((item, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <span className="font-onest font-normal text-[15px] leading-none text-black">/</span>
-            {item.path && index < items.length - 1 ? (
-              <Link to={item.path} className="font-onest font-normal text-[15px] leading-none text-black no-underline transition-colors duration-300 hover:text-blue-secondary">
-                {item.label}
-              </Link>
-            ) : (
-              <span className="font-onest font-normal text-[15px] leading-none text-black">{item.label}</span>
-            )}
-          </div>
-        ))}
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          return (
+            <div key={index} className="flex items-center gap-2">
+              <span className="font-onest font-normal text-[15px] leading-none text-black">/</span>
+              {item.path && !isLast ? (
+                <Link to={item.path} className="font-onest font-normal text-[15px] leading-none text-black no-underline transition-colors duration-300 hover:text-blue-secondary">
+                  {item.label}
+                </Link>
+              ) : (
+                <span className={`font-onest font-normal text-[15px] leading-none ${isLast ? 'text-[#0072C6] underline underline-offset-[4px] decoration-solid decoration-2' : 'text-black'}`}>
+                  {item.label}
+                </span>
+              )}
+            </div>
+          );
+        })}
       </div>
     </nav>
   );
