@@ -80,19 +80,19 @@ export const Header = () => {
           </div>
 
           <nav className="hidden lg:flex items-center gap-6 fixed pointer-events-auto z-10 transition-all duration-300" style={{ top: isScrolled ? '2rem' : 'calc(5vh + 2.5rem)', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            <Link to="/" className={getNavClass('/')}>
+            <Link to="/" className={`${getNavClass('/')} whitespace-nowrap`}>
               ГЛАВНАЯ
             </Link>
-            <Link to="/about" className={getNavClass('/about')}>
+            <Link to="/about" className={`${getNavClass('/about')} whitespace-nowrap`}>
               О ПРОЕКТЕ
             </Link>
-            <Link to="/consortium" className={getNavClass('/consortium')}>
+            <Link to="/consortium" className={`${getNavClass('/consortium')} whitespace-nowrap`}>
               КОНСОРЦИУМ
             </Link>
             <div className="relative" ref={workPackagesRef}>
               <button
                 onClick={toggleWorkPackages}
-                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
+                className={`font-onest font-medium text-base leading-none uppercase no-underline transition-colors duration-300 flex items-center gap-1 whitespace-nowrap ${location.pathname.startsWith('/work-packages') ? 'text-[#0072C6] underline underline-offset-4 decoration-solid decoration-2' : 'text-black hover:text-[#0072C6]'}`}
               >
                 РАБОЧИЕ ПАКЕТЫ
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isWorkPackagesOpen ? 'rotate-180' : ''}`} />
@@ -120,10 +120,10 @@ export const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/documentation" className={getNavClass('/documentation')}>
+            <Link to="/documentation" className={`${getNavClass('/documentation')} whitespace-nowrap`}>
               ДОКУМЕНТАЦИЯ
             </Link>
-            <Link to="/news" className={getNavClass('/news')}>
+            <Link to="/news" className={`${getNavClass('/news')} whitespace-nowrap`}>
               НОВОСТИ
             </Link>
           </nav>
